@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="Dependency syntax and parsing 考虑另一种语法形式：依存语法。 在这种语法下，我们不再需要短语成分和短语结构。取而代之的是基于句法结构的词与词之间的关系。这种关系是二元的，有向的。 下图展示了一个依存语法分析的结构。 Here we present another family of grammar formalisms called dependency gram">
+<meta name="description" content="考虑另一种语法形式：依存语法。 在这种语法下，我们不再需要短语成分和短语结构。取而代之的是基于句法结构的词与词之间的关系。 这种关系是二元的，有向的。 下图展示了一个依存语法分析的结构。 Here we present another family of grammar formalisms called dependency grammars, In these formalisms, phr">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Dependency parse">
 <meta property="og:url" content="http://yoursite.com/2017/11/01/parsing/index.html">
 <meta property="og:site_name" content="Willand!">
-<meta property="og:description" content="Dependency syntax and parsing 考虑另一种语法形式：依存语法。 在这种语法下，我们不再需要短语成分和短语结构。取而代之的是基于句法结构的词与词之间的关系。这种关系是二元的，有向的。 下图展示了一个依存语法分析的结构。 Here we present another family of grammar formalisms called dependency gram">
+<meta property="og:description" content="考虑另一种语法形式：依存语法。 在这种语法下，我们不再需要短语成分和短语结构。取而代之的是基于句法结构的词与词之间的关系。 这种关系是二元的，有向的。 下图展示了一个依存语法分析的结构。 Here we present another family of grammar formalisms called dependency grammars, In these formalisms, phr">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-19T00:00:47.000Z">
+<meta property="og:updated_time" content="2018-01-19T17:20:58.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Dependency parse">
-<meta name="twitter:description" content="Dependency syntax and parsing 考虑另一种语法形式：依存语法。 在这种语法下，我们不再需要短语成分和短语结构。取而代之的是基于句法结构的词与词之间的关系。这种关系是二元的，有向的。 下图展示了一个依存语法分析的结构。 Here we present another family of grammar formalisms called dependency gram">
+<meta name="twitter:description" content="考虑另一种语法形式：依存语法。 在这种语法下，我们不再需要短语成分和短语结构。取而代之的是基于句法结构的词与词之间的关系。 这种关系是二元的，有向的。 下图展示了一个依存语法分析的结构。 Here we present another family of grammar formalisms called dependency grammars, In these formalisms, phr">
 
 
 
@@ -186,6 +186,26 @@
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
             首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
           </a>
         </li>
       
@@ -300,11 +320,15 @@
 
       
         <link href="https://cdn.bootcss.com/KaTeX/0.7.1/katex.min.css" rel="stylesheet">
-<h1 id="dependency-syntax-and-parsing"><a class="markdownIt-Anchor" href="#dependency-syntax-and-parsing"></a> Dependency syntax and parsing</h1>
 <p>考虑另一种语法形式：<strong>依存语法</strong>。</p>
-<p>在这种语法下，我们不再需要短语成分和短语结构。取而代之的是基于句法结构的词与词之间的关系。这种关系是二元的，有向的。</p>
+<p>在这种语法下，我们不再需要短语成分和短语结构。取而代之的是基于句法结构的词与词之间的关系。</p>
+<p>这种关系是二元的，有向的。</p>
 <p>下图展示了一个依存语法分析的结构。</p>
-<p>Here we present another family of grammar formalisms called <strong>dependency grammars</strong>, In these formalisms, phrasal constituents and phrase-structure rules do not play a direct role. Instead, the syntactic structure of a sentence is described solely in terms of the words (or lemmas) in a sentence and an associated set of directed binary grammatical relations that hold among the words.</p>
+<p>Here we present another family of grammar formalisms called <strong>dependency grammars</strong>,</p>
+<p>In these formalisms, phrasal constituents and phrase-structure rules do not play a direct role.</p>
+<p>Instead, the syntactic structure of a sentence is described solely in terms of the words (or lemmas)</p>
+<p>in a sentence and an associated set of directed binary grammatical relations that</p>
+<p>hold among the words.</p>
 <p>The following graph demonstrates the structure of dependency-style analysis.</p>
 <p>Relations among the words are illustrated above the sentence with directed, labeled arcs from heads to dependents. We call this a <strong>typed dependency structure</strong> because the labels are drawn from a fixed inventory of grammatical relations.<br>
 上图中词与词的关系用一个带标签的有向箭头表示。像上图这样的结构被称为<strong>typed依存结构</strong>，因为所有的标签都来自于一个固定的语法关系库。</p>
@@ -636,7 +660,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#dependency-syntax-and-parsing"><span class="nav-number">1.</span> <span class="nav-text"> Dependency syntax and parsing</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1dependency-syntax"><span class="nav-number">1.1.</span> <span class="nav-text"> 1.	Dependency syntax</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#11dependency-syntax"><span class="nav-number">1.1.1.</span> <span class="nav-text"> 1.1	Dependency syntax</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#12dependency-tree"><span class="nav-number">1.1.2.</span> <span class="nav-text"> 1.2	dependency tree</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2transform-constituency-dependency-parse"><span class="nav-number">1.2.</span> <span class="nav-text"> 2.	Transform constituency → dependency parse</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#21head-finding-rules-to-build-lexicalized-constituency-parse"><span class="nav-number">1.2.1.</span> <span class="nav-text"> 2.1	Head-finding rules to build Lexicalized Constituency Parse</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#22convert-constituency-tree-to-dependency-tree"><span class="nav-number">1.2.2.</span> <span class="nav-text"> 2.2	Convert constituency tree to dependency tree</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#23define-the-head-of-phrase-in-dependency-tree"><span class="nav-number">1.2.3.</span> <span class="nav-text"> 2.3	Define the head of phrase in dependency tree</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3projectivity"><span class="nav-number">1.3.</span> <span class="nav-text"> 3.	Projectivity</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4dependency-treebanks"><span class="nav-number">1.4.</span> <span class="nav-text"> 4.	Dependency Treebanks</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5dependency-parsing"><span class="nav-number">1.5.</span> <span class="nav-text"> 5.Dependency parsing</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#51transition-based-parsing"><span class="nav-number">1.5.1.</span> <span class="nav-text"> 5.1Transition-based parsing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#52differences-from-constituency-parsing"><span class="nav-number">1.5.2.</span> <span class="nav-text"> 5.2	differences from constituency parsing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#53create-a-oracle"><span class="nav-number">1.5.3.</span> <span class="nav-text"> 5.3Create a oracle</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#531get-training-data"><span class="nav-number">1.5.3.1.</span> <span class="nav-text"> 5.3.1Get training data</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#532feature-templates"><span class="nav-number">1.5.3.2.</span> <span class="nav-text"> 5.3.2	Feature templates</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#533use-classifier-to-predict"><span class="nav-number">1.5.3.3.</span> <span class="nav-text"> 5.3.3	Use Classifier to predict</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#534an-example-word-sense-disambiguation"><span class="nav-number">1.5.3.4.</span> <span class="nav-text"> 5.3.4	An example: word sense disambiguation</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#54bean-search-agenda"><span class="nav-number">1.5.4.</span> <span class="nav-text"> 5.4	Bean search & agenda</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#541bean-search"><span class="nav-number">1.5.4.1.</span> <span class="nav-text"> 5.4.1	Bean search:</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#5411-advantages"><span class="nav-number">1.5.4.1.1.</span> <span class="nav-text"> 5.4.1.1 Advantages:</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#542agenda"><span class="nav-number">1.5.4.2.</span> <span class="nav-text"> 5.4.2Agenda</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#54evaluating-dependency-parsing"><span class="nav-number">1.5.5.</span> <span class="nav-text"> 5.4	Evaluating dependency parsing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#55summary-for-transition-based-parsing"><span class="nav-number">1.5.6.</span> <span class="nav-text"> 5.5	Summary for transition-based parsing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#56graph-based-parsing"><span class="nav-number">1.5.7.</span> <span class="nav-text"> 5.6	Graph-based parsing</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1dependency-syntax"><span class="nav-text"> 1.	Dependency syntax</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#11dependency-syntax"><span class="nav-text"> 1.1	Dependency syntax</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#12dependency-tree"><span class="nav-text"> 1.2	dependency tree</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2transform-constituency-dependency-parse"><span class="nav-text"> 2.	Transform constituency → dependency parse</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#21head-finding-rules-to-build-lexicalized-constituency-parse"><span class="nav-text"> 2.1	Head-finding rules to build Lexicalized Constituency Parse</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#22convert-constituency-tree-to-dependency-tree"><span class="nav-text"> 2.2	Convert constituency tree to dependency tree</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#23define-the-head-of-phrase-in-dependency-tree"><span class="nav-text"> 2.3	Define the head of phrase in dependency tree</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3projectivity"><span class="nav-text"> 3.	Projectivity</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4dependency-treebanks"><span class="nav-text"> 4.	Dependency Treebanks</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5dependency-parsing"><span class="nav-text"> 5.Dependency parsing</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#51transition-based-parsing"><span class="nav-text"> 5.1Transition-based parsing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#52differences-from-constituency-parsing"><span class="nav-text"> 5.2	differences from constituency parsing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#53create-a-oracle"><span class="nav-text"> 5.3Create a oracle</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#531get-training-data"><span class="nav-text"> 5.3.1Get training data</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#532feature-templates"><span class="nav-text"> 5.3.2	Feature templates</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#533use-classifier-to-predict"><span class="nav-text"> 5.3.3	Use Classifier to predict</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#534an-example-word-sense-disambiguation"><span class="nav-text"> 5.3.4	An example: word sense disambiguation</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#54bean-search-agenda"><span class="nav-text"> 5.4	Bean search & agenda</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#541bean-search"><span class="nav-text"> 5.4.1	Bean search:</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#5411-advantages"><span class="nav-text"> 5.4.1.1 Advantages:</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#542agenda"><span class="nav-text"> 5.4.2Agenda</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#54evaluating-dependency-parsing"><span class="nav-text"> 5.4	Evaluating dependency parsing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#55summary-for-transition-based-parsing"><span class="nav-text"> 5.5	Summary for transition-based parsing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#56graph-based-parsing"><span class="nav-text"> 5.6	Graph-based parsing</span></a></li></ol></li></ol></div>
             
 
           </div>

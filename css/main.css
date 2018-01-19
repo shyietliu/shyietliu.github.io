@@ -1822,7 +1822,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #0311ff;
+  background: #4f956b;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2658,4 +2658,44 @@ embed {
 }
 .links-of-blogroll-inline .links-of-blogroll-item {
   display: inline-block;
+}
+body {
+  background: url("https://i2-prod.mirror.co.uk/lifestyle/travel/british-breaks/article9699592.ece/ALTERNATES/s1200/The-stunning-city-skyline-of-Edinburgh.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+}
+#sidebar {
+  background: url("https://playdota.s3.amazonaws.com/2017/05/1157_d60285d1b16f5bdbb2c9d28d1c347130.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+#sidebar p,
+#sidebar span,
+#sidebar a {
+  color: 0, 0, 0;
+}
+.content {
+  border-radius: 10px;
+  margin-top: 60px;
+  margin-bottom: 60px;
+  background: rgba(255,255,255,0.95) none repeat scroll !important;
+}
+.main-inner {
+  width: 1000px;
+}
+.posts-expand {
+  margin: 0 100px 100px 100px;
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  .content-wrap {
+    padding: 100rem;
+  }
+}
+@media (max-width: 767px) {
+  .content-wrap {
+    padding: 100rem;
+  }
 }
