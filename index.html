@@ -1,236 +1,758 @@
 <!DOCTYPE html>
-<html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
 <head>
-    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
 
-    
 
-    <title>
-      Willand! 
-    </title>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    
-      <meta name="author" content="Shyiet Liu">
-    
-    
 
-    <meta property="og:type" content="website">
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta property="og:type" content="website">
 <meta property="og:title" content="Willand!">
 <meta property="og:url" content="http://yoursite.com/index.html">
 <meta property="og:site_name" content="Willand!">
 <meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Willand!">
-    
-    
-    
-      <link rel="icon" type="image/x-icon" href="/favicon.png">
-    
-    <link rel="stylesheet" href="/css/uno.css">
-    <link rel="stylesheet" href="/css/highlight.css">
-    <link rel="stylesheet" href="/css/archive.css">
-    <link rel="stylesheet" href="/css/china-social-icon.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/"/>
+
+
+
+
+
+  <title>Willand!</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+
+
+
+
+
+
 
 </head>
-<body>
 
-    <!-- hexo-inject:begin --><!-- hexo-inject:end --><span class="mobile btn-mobile-menu">
-        <i class="icon icon-list btn-mobile-menu__icon"></i>
-        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
-    </span>
-
-    
- 
-<header class="panel-cover">
-
-
-  <div class="panel-main">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
-    <div class="panel-main__inner panel-inverted">
-    <div class="panel-main__content">
+  
+    
+  
 
-        
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left 
+  page-home">
+    <div class="headband"></div>
 
-        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">Willand!</a></h1>
-        <hr class="panel-cover__divider" />
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
 
-        
-
-        <div class="navigation-wrapper">
-
-          <nav class="cover-navigation cover-navigation--primary">
-            <ul class="navigation">
-
-              
-                
-                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
-              
-                
-                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
-              
-                
-                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
-              
-
-            </ul>
-          </nav>
-
-          <!-- ----------------------------
-To add a new social icon simply duplicate one of the list items from below
-and change the class in the <i> tag to match the desired social network
-and then add your link to the <a>. Here is a full list of social network
-classes that you can use:
-
-    icon-social-500px
-    icon-social-behance
-    icon-social-delicious
-    icon-social-designer-news
-    icon-social-deviant-art
-    icon-social-digg
-    icon-social-dribbble
-    icon-social-facebook
-    icon-social-flickr
-    icon-social-forrst
-    icon-social-foursquare
-    icon-social-github
-    icon-social-google-plus
-    icon-social-hi5
-    icon-social-instagram
-    icon-social-lastfm
-    icon-social-linkedin
-    icon-social-medium
-    icon-social-myspace
-    icon-social-path
-    icon-social-pinterest
-    icon-social-rdio
-    icon-social-reddit
-    icon-social-skype
-    icon-social-spotify
-    icon-social-stack-overflow
-    icon-social-steam
-    icon-social-stumbleupon
-    icon-social-treehouse
-    icon-social-tumblr
-    icon-social-twitter
-    icon-social-vimeo
-    icon-social-xbox
-    icon-social-yelp
-    icon-social-youtube
-    icon-social-zerply
-    icon-mail
-
--------------------------------->
-
-<!-- add social info here -->
-
-
-
-        </div>
-
-      </div>
-
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Willand!</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
     </div>
-
-    <div class="panel-cover--overlay"></div>
+      
+        <p class="site-subtitle"></p>
+      
   </div>
-</header>
 
-    <div class="content-wrapper">
-        <div class="content-wrapper__inner entry">
-            
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
 
+<nav class="site-nav">
+  
 
-   <!-- do nothing -->
-
-
-<div class="main-post-list">
-    <ol class="post-list">
-    
-    
-    <li>
-
-      <h2 class="post-list__post-title post-title">
-        <a href="/2017/11/01/parsing/" title="link to Dependency parse">Dependency parse</a>
-      </h2>
-
-      <div class="post-list__meta">
-
-        <time datetime="2017-11-01" class="post-list__meta--date date">2017-11-01</time> 
-      </div>
-
-      <div class="excerpt">
+  
+    <ul id="menu" class="menu">
+      
         
-      </div>
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
 
-      <hr class="post-list__divider" />
-    </li>
-    
-  </ol>
+      
+    </ul>
+  
 
-  <hr class="post-list__divider " />
-
-<nav class="pagination" role="navigation">
-    
-
-    <span class="pagination__page-number"> 1 / 1</span>
-    
-    
+  
 </nav>
 
 
-</div>
-            <footer class="footer">
 
-    <span class="footer__copyright">&copy; 2014-2015. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a></span>
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+  <section id="posts" class="posts-expand">
     
-</footer>
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/01/parsing/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Shyiet Liu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Willand!">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/01/parsing/" itemprop="url">Dependency parse</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-01T20:10:33+00:00">
+                2017-11-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
         </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <link href="https://cdn.bootcss.com/KaTeX/0.7.1/katex.min.css" rel="stylesheet">
+<h1 id="dependency-syntax-and-parsing"><a class="markdownIt-Anchor" href="#dependency-syntax-and-parsing"></a> Dependency syntax and parsing</h1>
+<p>考虑另一种语法形式：<strong>依存语法</strong>。</p>
+<p>在这种语法下，我们不再需要短语成分和短语结构。取而代之的是基于句法结构的词与词之间的关系。这种关系是二元的，有向的。</p>
+<p>下图展示了一个依存语法分析的结构。</p>
+<p>Here we present another family of grammar formalisms called <strong>dependency grammars</strong>, In these formalisms, phrasal constituents and phrase-structure rules do not play a direct role. Instead, the syntactic structure of a sentence is described solely in terms of the words (or lemmas) in a sentence and an associated set of directed binary grammatical relations that hold among the words.</p>
+<p>The following graph demonstrates the structure of dependency-style analysis.</p>
+<p>Relations among the words are illustrated above the sentence with directed, labeled arcs from heads to dependents. We call this a <strong>typed dependency structure</strong> because the labels are drawn from a fixed inventory of grammatical relations.<br>
+上图中词与词的关系用一个带标签的有向箭头表示。像上图这样的结构被称为<strong>typed依存结构</strong>，因为所有的标签都来自于一个固定的语法关系库。</p>
+<h2 id="1dependency-syntax"><a class="markdownIt-Anchor" href="#1dependency-syntax"></a> 1.	Dependency syntax</h2>
+<hr>
+<h3 id="11dependency-syntax"><a class="markdownIt-Anchor" href="#11dependency-syntax"></a> 1.1	Dependency syntax</h3>
+<p>Dependency relation consists of <strong>a head</strong> and <strong>a dependent</strong>.</p>
+<p><u>The head word of a constituent</u> was the central organizing word of a larger constituent (e.g, the primary noun in a noun phrase, or verb in a verb phrase).</p>
+<p><u>The remaining words in the constituent</u> are either direct, or indirect, dependents of their head.</p>
+<p>![屏幕快照 2017-10-23 下午9.44.35](/Users/shyietliu/Desktop/屏幕快照 2017-10-23 下午9.44.35.png)</p>
+<p>In addition to specifying the head-dependent pairs, <strong>dependency grammars</strong> allowus to further <u>classify the kinds of grammatical relations, or grammatical function, in terms of the role that the dependent plays with respect to its head.</u> Familiar notions such as subject, direct object and indirect object are among the kind of relations we have in mind.</p>
+<p>​</p>
+<p>In their most general form, the dependency structures we’re discussing are simply directed graphs. That is, structures <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>G</mi><mo>=</mo><mo>(</mo><mi>V</mi><mo separator="true">,</mo><mi>A</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">G = (V, A)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit">G</span><span class="mrel">=</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.22222em;">V</span><span class="mpunct">,</span><span class="mord mathit">A</span><span class="mclose">)</span></span></span></span> consisting of a set of vertices <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>V</mi></mrow><annotation encoding="application/x-tex">V</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.22222em;">V</span></span></span></span> , and a set of ordered pairs of vertices <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>A</mi></mrow><annotation encoding="application/x-tex">A</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">A</span></span></span></span>, which we’ll refer to as arcs.</p>
+<p>The elements in the sentence is <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>V</mi></mrow><annotation encoding="application/x-tex">V</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.22222em;">V</span></span></span></span>, while the arcs that represent the head-dependent and grammatical function relationships between the elements in <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>V</mi></mrow><annotation encoding="application/x-tex">V</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.22222em;">V</span></span></span></span>.</p>
+<h3 id="12dependency-tree"><a class="markdownIt-Anchor" href="#12dependency-tree"></a> 1.2	dependency tree</h3>
+<p>A valid dependency tree for a sentence requires:</p>
+<ol>
+<li>There is a single designated root node that has no incoming arcs.</li>
+<li>Withtheexceptionoftherootnode,eachvertexhasexactlyoneincomingarc.</li>
+<li>There is a unique path from the root node to each vertex in V .</li>
+</ol>
+<p>![屏幕快照 2017-10-23 下午10.20.47](/Users/shyietliu/Desktop/屏幕快照 2017-10-23 下午10.20.47.png)</p>
+<h2 id="2transform-constituency-dependency-parse"><a class="markdownIt-Anchor" href="#2transform-constituency-dependency-parse"></a> 2.	Transform constituency → dependency parse</h2>
+<hr>
+<p>The most widely used English <u>dependency treebanks were automatically derived from phrase- structure treebanks</u> through the use of <strong>head-finding rules</strong>.</p>
+<h3 id="21head-finding-rules-to-build-lexicalized-constituency-parse"><a class="markdownIt-Anchor" href="#21head-finding-rules-to-build-lexicalized-constituency-parse"></a> 2.1	Head-finding rules to build Lexicalized Constituency Parse</h3>
+<p><strong>What’s head?</strong></p>
+<p>The head is the word in the phrase that is grammatically the most important.</p>
+<p><strong>How we get head given a parse tree?</strong></p>
+<p>step1.	choose head daughter</p>
+<p>For the generation of a parse tree with head, each CFG rule must be augmented to identify one right-side constituent to be the head daughter. i.e. for the CFG rule: <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>A</mi><mo>→</mo><mi>α</mi><mi>β</mi><mi>γ</mi></mrow><annotation encoding="application/x-tex">A\to \alpha \beta \gamma</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit">A</span><span class="mrel">→</span><span class="mord mathit" style="margin-right:0.0037em;">α</span><span class="mord mathit" style="margin-right:0.05278em;">β</span><span class="mord mathit" style="margin-right:0.05556em;">γ</span></span></span></span>, the tree should decide a head daughter for <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>A</mi></mrow><annotation encoding="application/x-tex">A</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">A</span></span></span></span>  from <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>α</mi><mi>β</mi><mi>γ</mi></mrow><annotation encoding="application/x-tex">\alpha \beta \gamma</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.0037em;">α</span><span class="mord mathit" style="margin-right:0.05278em;">β</span><span class="mord mathit" style="margin-right:0.05556em;">γ</span></span></span></span>.</p>
+<p>The headword for a node is then set to the headword of its head daughter.</p>
+<p>Heads are passed up the parse tree; thus, <u>each non-terminal</u> in a parse tree is annotated with a single <u>word</u>, which is its <u>lexical head</u>.</p>
+<p>![111](/Users/shyietliu/Desktop/屏幕快照 2017-10-23 下午10.54.57.png)</p>
+<h3 id="22convert-constituency-tree-to-dependency-tree"><a class="markdownIt-Anchor" href="#22convert-constituency-tree-to-dependency-tree"></a> 2.2	Convert constituency tree to dependency tree</h3>
+<p>Assume we have a <strong>Lexicalized Constituency Parse tree</strong> (i.e. the constituency parsing tree with head like the graph above), we then could convert this tree to a dependency tree.</p>
+<p>![图片 1](/Users/shyietliu/Pictures/ANLP-dependency/图片 1.png)</p>
+<p>We can finish the convert process by following these steps:</p>
+<p>step1.	remove the phrasal categories from the lexicalized constituency parse tree.</p>
+<p>step2.	remove the (duplicated) terminals</p>
+<p>Step3.	collapse chains of duplicates</p>
+<p>![图片 2](/Users/shyietliu/Pictures/ANLP-dependency/图片 2.png)</p>
+<p>Now we can convert a  constituency tree to a dependency tree.</p>
+<h3 id="23define-the-head-of-phrase-in-dependency-tree"><a class="markdownIt-Anchor" href="#23define-the-head-of-phrase-in-dependency-tree"></a> 2.3	Define the head of phrase in dependency tree</h3>
+<p>The standard solution is to use <strong>head rule</strong>: for every non-unary §CFG production, designate one RHS nonterminal as containing the head.</p>
+<p>S → NP <u>VP,</u> VP → <u>VP</u> PP, PP → P <u>NP</u></p>
+<p><strong>The question is how we know which RHS nonterminal is the head?</strong></p>
+<h2 id="3projectivity"><a class="markdownIt-Anchor" href="#3projectivity"></a> 3.	Projectivity</h2>
+<hr>
+<p><strong>Projective arc</strong></p>
+<p>An arc from a head to a dependent is said to be projective <u>if there is a path (direct path isn’t neccesary) from the head to <strong>every word</strong> that lies <strong>between</strong> the head and the dependent in the sentence.</u></p>
+<p><strong>Projective tree</strong></p>
+<p>A dependency tree is then said to be projective if all the arcs that make it up are projective.</p>
+<p>Consider the example below:</p>
+<p>![屏幕快照 2017-10-23 下午10.29.12](/Users/shyietliu/Desktop/屏幕快照 2017-10-23 下午10.29.12.png)</p>
+<p>the arc from flight to its modifier was is non-projective since there is no path from flight to the intervening words this and morning.</p>
+<h2 id="4dependency-treebanks"><a class="markdownIt-Anchor" href="#4dependency-treebanks"></a> 4.	Dependency Treebanks</h2>
+<p>Dependency treebanks have been created using several approaches:</p>
+<ul>
+<li>
+<p>having human annotators directly generate dependency structures for a given corpus</p>
+</li>
+<li>
+<p>or using automatic parsers to provide an initial parse and then having annotators hand correct those parsers.</p>
+</li>
+<li>
+<p>We can also use a deterministic process to translate existing constituent-based treebanks into dependency trees through the use of head rules.</p>
+<h2 id="5dependency-parsing"><a class="markdownIt-Anchor" href="#5dependency-parsing"></a> 5.Dependency parsing</h2>
+<h3 id="51transition-based-parsing"><a class="markdownIt-Anchor" href="#51transition-based-parsing"></a> 5.1Transition-based parsing</h3>
+</li>
+</ul>
+<p><strong>Given</strong>: a sentence (a sequence of words)</p>
+<p><strong>Wanted</strong>: the relation between words (i.e. the dependency tree)</p>
+<p>The arc-standard approach parses input sentence w_1 …w_N using two types of reduce actions (three actions altogether):</p>
+<ul>
+<li>Shift: Read next word <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>w</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">w_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.02691em;">w</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.02691em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span> from input and push onto the stack.</li>
+<li>LeftArc: Assign head-dependent relation <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>s</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">s_2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">s</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span> ← <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>s</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">s_1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">s</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">1</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>; pop <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>s</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">s_2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">s</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span></li>
+<li>RightArc: Assign head-dependent relation <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>s</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">s_2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">s</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span> → <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>s</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">s_1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">s</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">1</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>; pop <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>s</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">s_1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">s</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">1</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span></li>
+</ul>
+<p>where <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>s</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">s_1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">s</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">1</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span> and <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>s</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">s_2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">s</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span> are the top and second item on the stack, respectively. (So, <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>s</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">s_2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">s</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span> preceded <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>s</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">s_1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">s</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">1</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span> in the input sentence.)</p>
+<p>![屏幕快照 2017-10-24 上午2.03.20](/Users/shyietliu/Pictures/ANLP-dependency/屏幕快照 2017-10-24 上午2.03.20.png)</p>
+<p>对于在input buffer中的words， 询问Oracle需要执行的指令(shift/left_Arc/right_Arc)，对word进行该指令操作。</p>
+<p>Mathematically, we have</p>
+<p>![屏幕快照 2017-10-24 上午1.56.22](/Users/shyietliu/Pictures/ANLP-dependency/屏幕快照 2017-10-24 上午1.56.22.png)</p>
+<p>At each step, the parser consults an oracle (we’ll come back to this shortly) that provides the correct transition operator to use given the current configuration.</p>
+<p><strong>How to generate Labelled tree ?</strong></p>
+<p>To produce labeled trees, we can parameterize the LEFT- ARC and RIGHTARC operators with dependency labels, as in LEFTARC(NSUBJ) or RIGHTARC(DOBJ).</p>
+<h3 id="52differences-from-constituency-parsing"><a class="markdownIt-Anchor" href="#52differences-from-constituency-parsing"></a> 5.2	differences from constituency parsing</h3>
+<ul>
+<li>
+<p>Shift-reduce parser for CFG: not all sequences of actions lead to valid parses. Choose incorrect action → may need to backtrack.</p>
+</li>
+<li>
+<p>Here, all valid action sequences lead to valid parses.</p>
+<ul>
+<li>Invalid actions: can’t apply LeftArc with root as dependent; can’t apply RightArc with root as head unless input is empty.</li>
+<li>Other actions may lead to incorrect parses, but still valid.</li>
+</ul>
+</li>
+<li>
+<p>So, parser doesn’t backtrack. Instead, tries to greedily predict the correct action at each step.</p>
+<ul>
+<li>Therefore, dependency parsers can be very fast (linear time).</li>
+<li>But need a good way to predict correct actions (talking about later).</li>
+</ul>
+<h3 id="53create-a-oracle"><a class="markdownIt-Anchor" href="#53create-a-oracle"></a> 5.3Create a oracle</h3>
+</li>
+</ul>
+<p>State-of-the-art transition-based systems use <u>supervised machine learning methods</u> to train <strong>classifiers</strong> that play the role of the oracle. Given appropriate training data, these methods learn a function that maps from configurations to transition operators.</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>P</mi><mo>(</mo><mi>a</mi><mi>c</mi><mi>t</mi><mi>i</mi><mi>o</mi><mi>n</mi><mi mathvariant="normal">∣</mi><mi>c</mi><mi>o</mi><mi>n</mi><mi>f</mi><mi>i</mi><mi>g</mi><mi>u</mi><mi>r</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>o</mi><mi>n</mi><mo>)</mo><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">P(action|configuration).
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base displaystyle textstyle uncramped"><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathit">a</span><span class="mord mathit">c</span><span class="mord mathit">t</span><span class="mord mathit">i</span><span class="mord mathit">o</span><span class="mord mathit">n</span><span class="mord mathrm">∣</span><span class="mord mathit">c</span><span class="mord mathit">o</span><span class="mord mathit">n</span><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="mord mathit">i</span><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="mord mathit">u</span><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="mord mathit">a</span><span class="mord mathit">t</span><span class="mord mathit">i</span><span class="mord mathit">o</span><span class="mord mathit">n</span><span class="mclose">)</span><span class="mord mathrm">.</span></span></span></span></span></p>
+<p>So what we need now?</p>
+<ul>
+<li>
+<p>Training data pairs (configurations, transition operators)</p>
+</li>
+<li>
+<p>Classifiers to predict $$P(action|configuration)$$.</p>
+<h4 id="531get-training-data"><a class="markdownIt-Anchor" href="#531get-training-data"></a> 5.3.1Get training data</h4>
+</li>
+</ul>
+<p>To be more precise, given a reference parse and a configuration, the training oracle proceeds as follows:</p>
+<ul>
+<li>Choose LEFTARC if it produces a correct head-dependent relation given the reference parse and the current configuration,</li>
+<li>Otherwise, choose RIGHTARC if (1) it produces a correct head-dependent re- lation given the reference parse and <u>(2) all of the dependents of the word at the top of the stack have already been assigned,</u></li>
+<li>Otherwise, choose SHIFT.</li>
+</ul>
+<p>The restriction on selecting the RIGHTARC operator is needed to ensure that a word is not popped from the stack, and thus lost to further processing, before all its dependents have been assigned to it.</p>
+<p>For example, if we have a set of reference dependency relations:![屏幕截图 2017-10-24 15.07.31](/Users/shyietliu/Desktop/屏幕截图 2017-10-24 15.07.31.png)</p>
+<p>We can use the method we discussed above to get training data.</p>
+<p>![屏幕截图 2017-10-24 15.02.01](/Users/shyietliu/Desktop/屏幕截图 2017-10-24 15.02.01.png)</p>
+<h4 id="532feature-templates"><a class="markdownIt-Anchor" href="#532feature-templates"></a> 5.3.2	Feature templates</h4>
+<p>As we are going to use some classifiers to predict the next action, we need inputs from the current configuration. But what we should use as the feature (the inputs)? Use all the words in input buffer? All words in the stack? And their tags? One way to address this problem is use feature templates as below.</p>
+<p>We then choose some features from the current configuration to predict action.</p>
+<p>![屏幕截图 2017-10-25 01.08.31](/Users/shyietliu/Desktop/屏幕截图 2017-10-25 01.08.31.png)</p>
+<h4 id="533use-classifier-to-predict"><a class="markdownIt-Anchor" href="#533use-classifier-to-predict"></a> 5.3.3	Use Classifier to predict</h4>
+<p>When we have the training data pairs (also the features), we can use many unsupervised classifier to predict the next action.</p>
+<p><strong>Generative model</strong></p>
+<p>Pass</p>
+<p><strong>Discriminative model</strong></p>
+<p>Pass</p>
+<p>We would discuss a particular model—Max entropy model</p>
+<p><strong>MaxEn model</strong></p>
+<p>Pass</p>
+<p>(没写完…)</p>
+<h4 id="534an-example-word-sense-disambiguation"><a class="markdownIt-Anchor" href="#534an-example-word-sense-disambiguation"></a> 5.3.4	An example: word sense disambiguation</h4>
+<p>pass</p>
+<h3 id="54bean-search-agenda"><a class="markdownIt-Anchor" href="#54bean-search-agenda"></a> 5.4	Bean search &amp; agenda</h3>
+<h4 id="541bean-search"><a class="markdownIt-Anchor" href="#541bean-search"></a> 5.4.1	Bean search:</h4>
+<ul>
+<li>
+<p>Instead of choosing only the best action at each step, choose a few of the best.</p>
+</li>
+<li>
+<p>Extend previous partial parses using these options.</p>
+</li>
+<li>
+<p>At each time step, keep a fixed number of best options, discard anything else.</p>
+<h5 id="5411-advantages"><a class="markdownIt-Anchor" href="#5411-advantages"></a> 5.4.1.1 Advantages:</h5>
+</li>
+<li>
+<p>May find a better overall parse than greedy search,</p>
+</li>
+<li>
+<p>While using less time/memory than exhaustive search.</p>
+<h4 id="542agenda"><a class="markdownIt-Anchor" href="#542agenda"></a> 5.4.2Agenda</h4>
+</li>
+</ul>
+<p>An ordered list of configurations (parser state + parse so far)</p>
+<p>(没写完…)</p>
+<h3 id="54evaluating-dependency-parsing"><a class="markdownIt-Anchor" href="#54evaluating-dependency-parsing"></a> 5.4	Evaluating dependency parsing</h3>
+<p>By construction, the number of dependencies is the same as the number of words in the sentence. So we do not need to worry about precision and recall, just plain old accuracy.</p>
+<ul>
+<li>
+<p>Labelled Attachment Score (LAS): Proportion of words where we predicted the correct head and label.</p>
+</li>
+<li>
+<p>Unlabelled Attachment Score (UAS): Proportion of words where we predicted the correct head, regardless of label.</p>
+</li>
+</ul>
+<h3 id="55summary-for-transition-based-parsing"><a class="markdownIt-Anchor" href="#55summary-for-transition-based-parsing"></a> 5.5	Summary for transition-based parsing</h3>
+<p>Arc-standard approach is based on simple shift-reduce idea.</p>
+<ul>
+<li>
+<p>Can do labelled or unlabelled parsing, but need to train a classifier to predict next action, as we’ll see next time.</p>
+</li>
+<li>
+<p>Greedy algorithm means time complexity is linear in sentence length.</p>
+</li>
+<li>
+<p>Only finds projective trees (without special extensions)</p>
+</li>
+<li>
+<p>Pioneering system: Nivre’s MaltParser.</p>
+</li>
+</ul>
+<p>(没写完…)</p>
+<h3 id="56graph-based-parsing"><a class="markdownIt-Anchor" href="#56graph-based-parsing"></a> 5.6	Graph-based parsing</h3>
+<p>Pass</p>
+
+          
+        
+      
     </div>
+    
+    
+    
 
-    <!-- js files -->
-    <script src="/js/jquery.min.js"></script>
-    <script src="/js/main.js"></script>
-    <script src="/js/scale.fix.js"></script>
     
 
     
 
-    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/javascript"> 
-        $(document).ready(function(){
-            MathJax.Hub.Config({ 
-                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
-            });
-        });
-    </script>
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
 
 
     
-    
-    
-    <!--kill ie6 -->
-<!--[if IE 6]>
-  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
-<![endif]-->
+  </section>
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
+  
+
+
+          </div>
+          
+
+
+          
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Shyiet Liu</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Shyiet Liu</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
 </script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config("");
 </script>
@@ -248,5 +770,60 @@ classes that you can use:
 </script>
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
 </body>
 </html>
