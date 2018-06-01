@@ -79,21 +79,21 @@
 
 
 
-<meta name="description" content="[TOC]  Transformer for NMT 传统的NMT基于encoder-decoder结构，但是RNN的recurrent特性使得网络往往很复杂，参数很多。Google 在2017年发表的一篇论文，Attention is all you need. 该论文提出一个新的NMT结构——transformer，摒弃了recurrent的结构，通过对attention的利用大大降低了参数">
+<meta name="description" content="[TOC]  Transformer for Neural MT 传统的NMT基于encoder-decoder结构，但是RNN的recurrent特性使得网络往往很复杂，参数很多。Google 在2017年发表的一篇论文，Attention is all you need. 该论文提出一个新的NMT结构——transformer，摒弃了recurrent的结构，通过对attention的利用大">
 <meta name="keywords" content="Machine Translation">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Transformer for NMT">
 <meta property="og:url" content="http://yoursite.com/2018/03/01/Transformer/index.html">
 <meta property="og:site_name" content="Willand">
-<meta property="og:description" content="[TOC]  Transformer for NMT 传统的NMT基于encoder-decoder结构，但是RNN的recurrent特性使得网络往往很复杂，参数很多。Google 在2017年发表的一篇论文，Attention is all you need. 该论文提出一个新的NMT结构——transformer，摒弃了recurrent的结构，通过对attention的利用大大降低了参数">
+<meta property="og:description" content="[TOC]  Transformer for Neural MT 传统的NMT基于encoder-decoder结构，但是RNN的recurrent特性使得网络往往很复杂，参数很多。Google 在2017年发表的一篇论文，Attention is all you need. 该论文提出一个新的NMT结构——transformer，摒弃了recurrent的结构，通过对attention的利用大">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://mchromiak.github.io/articles/2017/Sep/12/Transformer-Attention-is-all-you-need/img/encoder.png">
 <meta property="og:image" content="https://cdn-images-1.medium.com/max/1600/0*XtkvLYAHQHxCfsRa.jpeg">
 <meta property="og:image" content="http://nlp.seas.harvard.edu/images/ModalNet-20.png">
-<meta property="og:updated_time" content="2018-06-01T12:09:56.000Z">
+<meta property="og:updated_time" content="2018-06-01T12:11:16.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Transformer for NMT">
-<meta name="twitter:description" content="[TOC]  Transformer for NMT 传统的NMT基于encoder-decoder结构，但是RNN的recurrent特性使得网络往往很复杂，参数很多。Google 在2017年发表的一篇论文，Attention is all you need. 该论文提出一个新的NMT结构——transformer，摒弃了recurrent的结构，通过对attention的利用大大降低了参数">
+<meta name="twitter:description" content="[TOC]  Transformer for Neural MT 传统的NMT基于encoder-decoder结构，但是RNN的recurrent特性使得网络往往很复杂，参数很多。Google 在2017年发表的一篇论文，Attention is all you need. 该论文提出一个新的NMT结构——transformer，摒弃了recurrent的结构，通过对attention的利用大">
 <meta name="twitter:image" content="https://mchromiak.github.io/articles/2017/Sep/12/Transformer-Attention-is-all-you-need/img/encoder.png">
 
 
@@ -360,7 +360,7 @@
       
         <link href="https://cdn.bootcss.com/KaTeX/0.7.1/katex.min.css" rel="stylesheet">
 <p>[TOC]</p>
-<h1 id="transformer-for-nmt"><a class="markdownIt-Anchor" href="#transformer-for-nmt"></a> Transformer for NMT</h1>
+<h1 id="transformer-for-neural-mt"><a class="markdownIt-Anchor" href="#transformer-for-neural-mt"></a> Transformer for Neural MT</h1>
 <p>传统的NMT基于encoder-decoder结构，但是RNN的recurrent特性使得网络往往很复杂，参数很多。Google 在2017年发表的一篇论文，<a href="http://papers.nips.cc/paper/7181-attention-is-all-you-need.pdf" target="_blank" rel="external">Attention is all you need</a>. 该论文提出一个新的NMT结构——transformer，摒弃了recurrent的结构，通过对attention的利用大大降低了参数数目并且该模型有state of the art的翻译质量。</p>
 <h2 id="1-background"><a class="markdownIt-Anchor" href="#1-background"></a> 1. Background</h2>
 <ul>
@@ -612,7 +612,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#transformer-for-nmt"><span class="nav-text"> Transformer for NMT</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-background"><span class="nav-text"> 1. Background</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-architecture-of-transformer"><span class="nav-text"> 2. Architecture of Transformer</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#21-encoder"><span class="nav-text"> 2.1 Encoder</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#211-feedforward-sublayer"><span class="nav-text"> 2.1.1 FeedForward Sublayer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#212-multi-head-attention-sublayer"><span class="nav-text"> 2.1.2 Multi-Head Attention Sublayer</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#2121-attention-in-a-general-way"><span class="nav-text"> 2.1.2.1 Attention in a general way</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2122-self-attention"><span class="nav-text"> 2.1.2.2 Self-Attention</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2123-scaled-dot-product-attention"><span class="nav-text"> 2.1.2.3 Scaled Dot-Product Attention</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2124-multi-head-attention"><span class="nav-text"> 2.1.2.4 Multi-Head Attention</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#213-add-norm-operations"><span class="nav-text"> 2.1.3 Add & Norm Operations</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#2131-add-operation"><span class="nav-text"> 2.1.3.1 Add operation</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2132-norm-operation"><span class="nav-text"> 2.1.3.2 Norm operation</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#22-decoder"><span class="nav-text"> 2.2 Decoder</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#221-masked-multi-head-attention"><span class="nav-text"> 2.2.1 Masked Multi-Head Attention</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#222-positional-encoding"><span class="nav-text"> 2.2.2 Positional Encoding</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#transformer-for-neural-mt"><span class="nav-text"> Transformer for Neural MT</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-background"><span class="nav-text"> 1. Background</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-architecture-of-transformer"><span class="nav-text"> 2. Architecture of Transformer</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#21-encoder"><span class="nav-text"> 2.1 Encoder</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#211-feedforward-sublayer"><span class="nav-text"> 2.1.1 FeedForward Sublayer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#212-multi-head-attention-sublayer"><span class="nav-text"> 2.1.2 Multi-Head Attention Sublayer</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#2121-attention-in-a-general-way"><span class="nav-text"> 2.1.2.1 Attention in a general way</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2122-self-attention"><span class="nav-text"> 2.1.2.2 Self-Attention</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2123-scaled-dot-product-attention"><span class="nav-text"> 2.1.2.3 Scaled Dot-Product Attention</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2124-multi-head-attention"><span class="nav-text"> 2.1.2.4 Multi-Head Attention</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#213-add-norm-operations"><span class="nav-text"> 2.1.3 Add & Norm Operations</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#2131-add-operation"><span class="nav-text"> 2.1.3.1 Add operation</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2132-norm-operation"><span class="nav-text"> 2.1.3.2 Norm operation</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#22-decoder"><span class="nav-text"> 2.2 Decoder</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#221-masked-multi-head-attention"><span class="nav-text"> 2.2.1 Masked Multi-Head Attention</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#222-positional-encoding"><span class="nav-text"> 2.2.2 Positional Encoding</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
