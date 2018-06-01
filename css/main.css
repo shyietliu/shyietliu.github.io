@@ -1822,7 +1822,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #2567ff;
+  background: #ec0aff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2363,8 +2363,8 @@ pre .javascript .function {
 }
 .page-archive .archive-page-counter {
   position: relative;
-  top: 3px;
-  left: 20px;
+  top: 50px;
+  left: 30px;
 }
 @media (max-width: 767px) {
   .page-archive .archive-page-counter {
@@ -2679,11 +2679,12 @@ body {
 }
 .content {
   border-radius: 10px;
-  margin: 0, 0, 0, 1000px;
+  margin-top: 0px;
+  margin-bottom: 10px;
   background: rgba(255,255,255,0.95) none repeat scroll !important;
 }
 .main-inner {
-  width: 1000px;
+  width: 950px;
 }
 .header-inner {
   padding-top: 100px;
@@ -2694,17 +2695,17 @@ body {
   padding-bottom: 100px;
 }
 .posts-expand .post-meta {
-  margin: 5px 0px 0px 0px;
+  margin: 5px 50px 50px 50px;
 }
 .post-button {
   margin-top: 0px;
 }
 .posts-expand {
-  margin: 0 100px 100px 100px;
+  margin: 0 100px 200px 100px;
 }
 @media (min-width: 768px) and (max-width: 991px) {
   .content-wrap {
-    padding: 1rem;
+    padding: 10rem;
   }
 }
 @media (max-width: 767px) {
