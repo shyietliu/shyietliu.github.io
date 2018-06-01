@@ -79,21 +79,21 @@
 
 
 
-<meta name="description" content="[TOC]  Transformer for NMT 传统的NMT基于encoder-decoder结构，但是RNN的recurrent特性使得网络往往很复杂，参数很多。Google 在2017年发表的一篇论文，Attention is all you need. 该论文提出一个新的NMT结构——transformer，摒弃了recurrent的结构，通过对attention的利用大大降低了参数数">
+<meta name="description" content="[TOC]  Transformer for NMT 传统的NMT基于encoder-decoder结构，但是RNN的recurrent特性使得网络往往很复杂，参数很多。Google 在2017年发表的一篇论文，Attention is all you need. 该论文提出一个新的NMT结构——transformer，摒弃了recurrent的结构，通过对attention的利用大大降低了参数">
 <meta name="keywords" content="Machine Translation">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Transformer for NMT">
 <meta property="og:url" content="http://yoursite.com/2018/03/01/Transformer/index.html">
 <meta property="og:site_name" content="Willand">
-<meta property="og:description" content="[TOC]  Transformer for NMT 传统的NMT基于encoder-decoder结构，但是RNN的recurrent特性使得网络往往很复杂，参数很多。Google 在2017年发表的一篇论文，Attention is all you need. 该论文提出一个新的NMT结构——transformer，摒弃了recurrent的结构，通过对attention的利用大大降低了参数数">
+<meta property="og:description" content="[TOC]  Transformer for NMT 传统的NMT基于encoder-decoder结构，但是RNN的recurrent特性使得网络往往很复杂，参数很多。Google 在2017年发表的一篇论文，Attention is all you need. 该论文提出一个新的NMT结构——transformer，摒弃了recurrent的结构，通过对attention的利用大大降低了参数">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://mchromiak.github.io/articles/2017/Sep/12/Transformer-Attention-is-all-you-need/img/encoder.png">
 <meta property="og:image" content="https://cdn-images-1.medium.com/max/1600/0*XtkvLYAHQHxCfsRa.jpeg">
 <meta property="og:image" content="http://nlp.seas.harvard.edu/images/ModalNet-20.png">
-<meta property="og:updated_time" content="2018-06-01T12:08:45.000Z">
+<meta property="og:updated_time" content="2018-06-01T12:09:56.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Transformer for NMT">
-<meta name="twitter:description" content="[TOC]  Transformer for NMT 传统的NMT基于encoder-decoder结构，但是RNN的recurrent特性使得网络往往很复杂，参数很多。Google 在2017年发表的一篇论文，Attention is all you need. 该论文提出一个新的NMT结构——transformer，摒弃了recurrent的结构，通过对attention的利用大大降低了参数数">
+<meta name="twitter:description" content="[TOC]  Transformer for NMT 传统的NMT基于encoder-decoder结构，但是RNN的recurrent特性使得网络往往很复杂，参数很多。Google 在2017年发表的一篇论文，Attention is all you need. 该论文提出一个新的NMT结构——transformer，摒弃了recurrent的结构，通过对attention的利用大大降低了参数">
 <meta name="twitter:image" content="https://mchromiak.github.io/articles/2017/Sep/12/Transformer-Attention-is-all-you-need/img/encoder.png">
 
 
@@ -358,7 +358,8 @@
       
 
       
-        <p>[TOC]</p>
+        <link href="https://cdn.bootcss.com/KaTeX/0.7.1/katex.min.css" rel="stylesheet">
+<p>[TOC]</p>
 <h1 id="transformer-for-nmt"><a class="markdownIt-Anchor" href="#transformer-for-nmt"></a> Transformer for NMT</h1>
 <p>传统的NMT基于encoder-decoder结构，但是RNN的recurrent特性使得网络往往很复杂，参数很多。Google 在2017年发表的一篇论文，<a href="http://papers.nips.cc/paper/7181-attention-is-all-you-need.pdf" target="_blank" rel="external">Attention is all you need</a>. 该论文提出一个新的NMT结构——transformer，摒弃了recurrent的结构，通过对attention的利用大大降低了参数数目并且该模型有state of the art的翻译质量。</p>
 <h2 id="1-background"><a class="markdownIt-Anchor" href="#1-background"></a> 1. Background</h2>
