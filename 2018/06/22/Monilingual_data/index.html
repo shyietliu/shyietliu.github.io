@@ -79,16 +79,17 @@
 
 
 
-<meta name="description" content="Which hearts more">
-<meta property="og:type" content="website">
+<meta name="description" content="Monolingual and Multilingual Data for Neural Machine Translation Neural Machine Translation (NMT) is supervised model, which is data-driven. It’s obvious that more data would help the model achieve b">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Willand">
-<meta property="og:url" content="http://yoursite.com/categories/machine-learning-and-pattern-recognition/index.html">
+<meta property="og:url" content="http://yoursite.com/2018/06/22/Monilingual_data/index.html">
 <meta property="og:site_name" content="Willand">
-<meta property="og:description" content="Which hearts more">
+<meta property="og:description" content="Monolingual and Multilingual Data for Neural Machine Translation Neural Machine Translation (NMT) is supervised model, which is data-driven. It’s obvious that more data would help the model achieve b">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-06-22T01:35:38.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Willand">
-<meta name="twitter:description" content="Which hearts more">
+<meta name="twitter:description" content="Monolingual and Multilingual Data for Neural Machine Translation Neural Machine Translation (NMT) is supervised model, which is data-driven. It’s obvious that more data would help the model achieve b">
 
 
 
@@ -118,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/categories/machine-learning-and-pattern-recognition/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/06/22/Monilingual_data/"/>
 
 
 
 
 
-  <title>分类: machine learning and pattern recognition | Willand</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title> | Willand</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -143,7 +144,7 @@
     
   
 
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left ">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -247,65 +248,171 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block category">
-
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>machine learning and pattern recognition<small>分类</small>
-        </h1>
-      </div>
-
-      
-        
-              
-              
-
-             
-                
-                <div class="collection-title">
-                  <h2 class="archive-year motion-element" id="archive-year-2018">2018</h2>
-                </div>
-             
-              
-        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/22/Monilingual_data/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Shyiet Liu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://www.wallpapers13.com/wp-content/uploads/2017/06/Dota-2-Pictures-gallery-Invoker-Magic-fighter-Digital-Art-Wallpaper-HD-1920x1080-1366x768.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Willand">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/05/08/Regularization_and_sparse/" itemprop="url">
-              
-                <span itemprop="name">L1 and L2 Regularization and Sparsity</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline"></h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-05-08T20:10:33+01:00"
-              content="2018-05-08" >
-          05-08
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-22T02:35:38+01:00">
+                2018-06-22
+              </time>
+            
 
-    </header>
-  </article>
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
 
 
       
-    </div>
+      
 
+      
+        <h1 id="monolingual-and-multilingual-data-for-neural-machine-translation"><a class="markdownIt-Anchor" href="#monolingual-and-multilingual-data-for-neural-machine-translation"></a> Monolingual and Multilingual Data for Neural Machine Translation</h1>
+<p>Neural Machine Translation (NMT) is supervised model, which is data-driven. It’s obvious that more data would help the model achieve better performance. The aim of this post is introducing some methods that utilize extra data so that we can improve the performance of our NMT system. For understanding the following statement, the knowledge of encoder-decoder achitecture is required.</p>
+<h2 id="1-introduction"><a class="markdownIt-Anchor" href="#1-introduction"></a> 1. Introduction</h2>
+<h3 id="11-parallel-data"><a class="markdownIt-Anchor" href="#11-parallel-data"></a> 1.1 Parallel data</h3>
+<p>Parallel data 可以理解为并行语言数据，或者成对的语言数据。Parallel实际上表示的是一一对应的训练数据。比如一个中文-英文的数据集，如果其中个中英句子对都是对应的，那么这个数据就是parallel的. 这也是我们在NMT model里最常见的一种情况。</p>
+<h3 id="12-monolingual-data"><a class="markdownIt-Anchor" href="#12-monolingual-data"></a> 1.2 Monolingual data</h3>
+<p>Monolingual data 指单语言数据，也就是仅有一种语言数据，没有与之相对的翻译。一般来说，Monolingual data都是target-side的语言数据。</p>
+<h3 id="13-multilingual-data"><a class="markdownIt-Anchor" href="#13-multilingual-data"></a> 1.3 Multilingual Data</h3>
+<p>Multilingual data 指多语言数据，但多种语言之间不一定是parallel的。</p>
+<p><strong>Multi-source Translation</strong><br>
+当多语言数据的所有语言都是parallel的，我们称之为Multi-source Translation。</p>
+<p><strong>Multi-way Translation</strong><br>
+当多语言数据的有多个parallel的语言对(language pairs)，但是各pair之间是不parallel的，称之为Multi-way Translation。也就是有很多组bilingual data.</p>
+<p>其中一种方法是利用<strong>bridge language</strong>. 通俗地说，假设我们要翻译语言<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>A</mi><mo>→</mo><mi>B</mi></mrow><annotation encoding="application/x-tex">A\rightarrow B</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">A</span><span class="mrel">→</span><span class="mord mathit" style="margin-right:0.05017em;">B</span></span></span></span>, 可以通过语言的内在特性，考虑先将<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>A</mi></mrow><annotation encoding="application/x-tex">A</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">A</span></span></span></span>翻译成<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>C</mi></mrow><annotation encoding="application/x-tex">C</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.07153em;">C</span></span></span></span>, 再将<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>C</mi></mrow><annotation encoding="application/x-tex">C</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.07153em;">C</span></span></span></span>翻译成<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>B</mi></mrow><annotation encoding="application/x-tex">B</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.05017em;">B</span></span></span></span>.</p>
+<p>另外一种方法是</p>
+
+      
+
+      <div>
+        
+          <div>
+    
+        <div style="text-align:center;color: #636363;font-size:14px;letter-spacing: 10px">本文结束啦<i class="fa fa-bell"></i>感谢您的阅读</div>
+    
+</div>
+
+        
+      </div>
+
+
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/06/22/svm/" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
 
 
 
@@ -314,6 +421,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -334,8 +445,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -401,6 +521,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#monolingual-and-multilingual-data-for-neural-machine-translation"><span class="nav-text"> Monolingual and Multilingual Data for Neural Machine Translation</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-introduction"><span class="nav-text"> 1. Introduction</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#11-parallel-data"><span class="nav-text"> 1.1 Parallel data</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#12-monolingual-data"><span class="nav-text"> 1.2 Monolingual data</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#13-multilingual-data"><span class="nav-text"> 1.3 Multilingual Data</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -534,7 +670,9 @@
   
 
   
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
 
 
   
