@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="Monolingual and Multilingual Data for Neural Machine Translation Neural Machine Translation (NMT) is supervised model, which is data-driven. It’s obvious that more data would help the model achieve b">
+<meta name="description" content="Monolingual and Multilingual Data for Neural Machine Translation Neural Machine Translation (NMT) is supervised model, which is data-driven. It&apos;s obvious that more data would help the model achieve be">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Willand">
 <meta property="og:url" content="http://yoursite.com/2018/06/22/Monilingual_data/index.html">
 <meta property="og:site_name" content="Willand">
-<meta property="og:description" content="Monolingual and Multilingual Data for Neural Machine Translation Neural Machine Translation (NMT) is supervised model, which is data-driven. It’s obvious that more data would help the model achieve b">
+<meta property="og:description" content="Monolingual and Multilingual Data for Neural Machine Translation Neural Machine Translation (NMT) is supervised model, which is data-driven. It&apos;s obvious that more data would help the model achieve be">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2018-06-22T01:35:38.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Willand">
-<meta name="twitter:description" content="Monolingual and Multilingual Data for Neural Machine Translation Neural Machine Translation (NMT) is supervised model, which is data-driven. It’s obvious that more data would help the model achieve b">
+<meta name="twitter:description" content="Monolingual and Multilingual Data for Neural Machine Translation Neural Machine Translation (NMT) is supervised model, which is data-driven. It&apos;s obvious that more data would help the model achieve be">
 
 
 
@@ -331,20 +331,18 @@
       
 
       
-        <h1 id="monolingual-and-multilingual-data-for-neural-machine-translation"><a class="markdownIt-Anchor" href="#monolingual-and-multilingual-data-for-neural-machine-translation"></a> Monolingual and Multilingual Data for Neural Machine Translation</h1>
-<p>Neural Machine Translation (NMT) is supervised model, which is data-driven. It’s obvious that more data would help the model achieve better performance. The aim of this post is introducing some methods that utilize extra data so that we can improve the performance of our NMT system. For understanding the following statement, the knowledge of encoder-decoder achitecture is required.</p>
-<h2 id="1-introduction"><a class="markdownIt-Anchor" href="#1-introduction"></a> 1. Introduction</h2>
-<h3 id="11-parallel-data"><a class="markdownIt-Anchor" href="#11-parallel-data"></a> 1.1 Parallel data</h3>
+        <h1 id="monolingual-and-multilingual-data-for-neural-machine-translation">Monolingual and Multilingual Data for Neural Machine Translation</h1>
+<p>Neural Machine Translation (NMT) is supervised model, which is data-driven. It's obvious that more data would help the model achieve better performance. The aim of this post is introducing some methods that utilize extra data so that we can improve the performance of our NMT system. For understanding the following statement, the knowledge of encoder-decoder achitecture is required.</p>
+<h2 id="introduction">1. Introduction</h2>
+<h3 id="parallel-data">1.1 Parallel data</h3>
 <p>Parallel data 可以理解为并行语言数据，或者成对的语言数据。Parallel实际上表示的是一一对应的训练数据。比如一个中文-英文的数据集，如果其中个中英句子对都是对应的，那么这个数据就是parallel的. 这也是我们在NMT model里最常见的一种情况。</p>
-<h3 id="12-monolingual-data"><a class="markdownIt-Anchor" href="#12-monolingual-data"></a> 1.2 Monolingual data</h3>
+<h3 id="monolingual-data">1.2 Monolingual data</h3>
 <p>Monolingual data 指单语言数据，也就是仅有一种语言数据，没有与之相对的翻译。一般来说，Monolingual data都是target-side的语言数据。</p>
-<h3 id="13-multilingual-data"><a class="markdownIt-Anchor" href="#13-multilingual-data"></a> 1.3 Multilingual Data</h3>
+<h3 id="multilingual-data">1.3 Multilingual Data</h3>
 <p>Multilingual data 指多语言数据，但多种语言之间不一定是parallel的。</p>
-<p><strong>Multi-source Translation</strong><br>
-当多语言数据的所有语言都是parallel的，我们称之为Multi-source Translation。</p>
-<p><strong>Multi-way Translation</strong><br>
-当多语言数据的有多个parallel的语言对(language pairs)，但是各pair之间是不parallel的，称之为Multi-way Translation。也就是有很多组bilingual data.</p>
-<p>其中一种方法是利用<strong>bridge language</strong>. 通俗地说，假设我们要翻译语言<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>A</mi><mo>→</mo><mi>B</mi></mrow><annotation encoding="application/x-tex">A\rightarrow B</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">A</span><span class="mrel">→</span><span class="mord mathit" style="margin-right:0.05017em;">B</span></span></span></span>, 可以通过语言的内在特性，考虑先将<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>A</mi></mrow><annotation encoding="application/x-tex">A</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">A</span></span></span></span>翻译成<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>C</mi></mrow><annotation encoding="application/x-tex">C</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.07153em;">C</span></span></span></span>, 再将<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>C</mi></mrow><annotation encoding="application/x-tex">C</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.07153em;">C</span></span></span></span>翻译成<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>B</mi></mrow><annotation encoding="application/x-tex">B</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.05017em;">B</span></span></span></span>.</p>
+<p><strong>Multi-source Translation</strong> 当多语言数据的所有语言都是parallel的，我们称之为Multi-source Translation。</p>
+<p><strong>Multi-way Translation</strong> 当多语言数据的有多个parallel的语言对(language pairs)，但是各pair之间是不parallel的，称之为Multi-way Translation。也就是有很多组bilingual data.</p>
+<p>其中一种方法是利用<strong>bridge language</strong>. 通俗地说，假设我们要翻译语言<span class="math inline">\(A\rightarrow B\)</span>, 可以通过语言的内在特性，考虑先将<span class="math inline">\(A\)</span>翻译成<span class="math inline">\(C\)</span>, 再将<span class="math inline">\(C\)</span>翻译成<span class="math inline">\(B\)</span>.</p>
 <p>另外一种方法是</p>
 
       
@@ -383,7 +381,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/06/22/svm/" rel="next" title="">
+              <a href="/2018/06/22/deep_copy_and_shadow_copy/" rel="next" title="">
                 <i class="fa fa-chevron-left"></i> 
               </a>
             
@@ -531,7 +529,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#monolingual-and-multilingual-data-for-neural-machine-translation"><span class="nav-text"> Monolingual and Multilingual Data for Neural Machine Translation</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-introduction"><span class="nav-text"> 1. Introduction</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#11-parallel-data"><span class="nav-text"> 1.1 Parallel data</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#12-monolingual-data"><span class="nav-text"> 1.2 Monolingual data</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#13-multilingual-data"><span class="nav-text"> 1.3 Multilingual Data</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#monolingual-and-multilingual-data-for-neural-machine-translation"><span class="nav-text">Monolingual and Multilingual Data for Neural Machine Translation</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#introduction"><span class="nav-text">1. Introduction</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#parallel-data"><span class="nav-text">1.1 Parallel data</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#monolingual-data"><span class="nav-text">1.2 Monolingual data</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#multilingual-data"><span class="nav-text">1.3 Multilingual Data</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

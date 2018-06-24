@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="MLPR," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Support Vector Machine and Kernals What&apos;s SVM？ 有很多种SVM的intuition的解释，下面这种是我觉得比较好的一种  考虑一个线性可分的数据集（线性可分可以简单理解为一条线就能办数据完美分成两类的情况，线性不可分的问题是线性可分的一个拓展，后文会提到。） 可以看到根据上图，我们有很多条线（实际上是无数条, 途中浅绿色虚线，蓝色直线，和黑色直线都可">
+<meta name="keywords" content="MLPR">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Support Vector Machine and Kernals">
+<meta property="og:url" content="http://yoursite.com/2018/03/09/svm/index.html">
+<meta property="og:site_name" content="Willand">
+<meta property="og:description" content="Support Vector Machine and Kernals What&apos;s SVM？ 有很多种SVM的intuition的解释，下面这种是我觉得比较好的一种  考虑一个线性可分的数据集（线性可分可以简单理解为一条线就能办数据完美分成两类的情况，线性不可分的问题是线性可分的一个拓展，后文会提到。） 可以看到根据上图，我们有很多条线（实际上是无数条, 途中浅绿色虚线，蓝色直线，和黑色直线都可">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://pau5bznt3.bkt.clouddn.com/18-6-25/38423682.jpg">
+<meta property="og:image" content="http://pau5bznt3.bkt.clouddn.com/18-6-25/16719309.jpg">
+<meta property="og:updated_time" content="2018-06-24T18:08:40.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Support Vector Machine and Kernals">
+<meta name="twitter:description" content="Support Vector Machine and Kernals What&apos;s SVM？ 有很多种SVM的intuition的解释，下面这种是我觉得比较好的一种  考虑一个线性可分的数据集（线性可分可以简单理解为一条线就能办数据完美分成两类的情况，线性不可分的问题是线性可分的一个拓展，后文会提到。） 可以看到根据上图，我们有很多条线（实际上是无数条, 途中浅绿色虚线，蓝色直线，和黑色直线都可">
+<meta name="twitter:image" content="http://pau5bznt3.bkt.clouddn.com/18-6-25/38423682.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/03/09/svm/"/>
+
+
+
+
+
+  <title>Support Vector Machine and Kernals | Willand</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Willand</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/09/svm/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Shyiet Liu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://www.wallpapers13.com/wp-content/uploads/2017/06/Dota-2-Pictures-gallery-Invoker-Magic-fighter-Digital-Art-Wallpaper-HD-1920x1080-1366x768.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Willand">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Support Vector Machine and Kernals</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-09T20:10:33+00:00">
+                2018-03-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/machine-learning-and-pattern-recognition/" itemprop="url" rel="index">
+                    <span itemprop="name">machine learning and pattern recognition</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+
+
+      
+      
+
+      
+        <p><link href="https://cdn.bootcss.com/KaTeX/0.7.1/katex.min.css" rel="stylesheet"></p>
+<h1 id="support-vector-machine-and-kernals">Support Vector Machine and Kernals</h1>
+<h2 id="whats-svm">What's SVM？</h2>
+<p>有很多种SVM的intuition的解释，下面这种是我觉得比较好的一种</p>
+<p><img src="http://pau5bznt3.bkt.clouddn.com/18-6-25/38423682.jpg" width="300"></p>
+<p>考虑一个线性可分的数据集（线性可分可以简单理解为一条线就能办数据完美分成两类的情况，线性不可分的问题是线性可分的一个拓展，后文会提到。）</p>
+<p>可以看到根据上图，我们有很多条线（实际上是无数条, 途中浅绿色虚线，蓝色直线，和黑色直线都可以）可以分开蓝色点和橙色点。而SVM的目的就是要在所有的直线中，找到一条最好的线。那么什么算是最好呢？再仔细观察，两条蓝色线离数据点距离最近，所有其他的线都在这两条线中间，看起来像一条路一样横在两种数据之间。我们的目的是更好的区分数据集，如果我们选两条浅蓝色的线作为分界依据，那么很容易就会把一类数据误分类到另一侧。所以很自然的想法就是让这条路尽可能的宽，因为越宽越不容易出现分类失误，并且选最中间的一条线。这就是SVM的核心思想：最大化间隔（maximizing margin）.</p>
+<p>那么SVM如何实现分类呢？换言之，我们怎么找到那条最好的线呢？我们怎么知道黑色线的方程是什么呢？为了方便理解，我们先把上面的图放在坐标系里。</p>
+<p><img src="http://pau5bznt3.bkt.clouddn.com/18-6-25/16719309.jpg" width="400"></p>
+<p>我们假设有一个向量<span class="math inline">\(\boldsymbol{w}\)</span>和我们的黑色直线垂直，我们现在不知道黑色直线是什么，也不知道红色向量<span class="math inline">\(\boldsymbol{w}\)</span>，没关系，但我们知道它们的关系是垂直。那么假设，有一个新数据点<span class="math inline">\(U\)</span>, 它的位置就在灰色向量<span class="math inline">\(\boldsymbol{u}\)</span>的终点，现在我们想要SVM告诉我们这个新数据是蓝色类的，还是橘黄色类的。我们现在只需要求出<span class="math inline">\(\boldsymbol{u} \cdot \boldsymbol{w}\)</span> 即可，因为这个式子可以看作是向量<span class="math inline">\(\boldsymbol{u}\)</span>在向量<span class="math inline">\(\boldsymbol{w}\)</span>方向上的投影，可以理解成把点<span class="math inline">\(U\)</span>投影到与黑色线垂直的方向上。那么我们只需要看这个投影后的点在黑色线的左边还是右边就好了。 <span class="math display">\[
+\boldsymbol{u}\cdot\boldsymbol{w} \geqslant c
+\]</span> 所以我们判断新的点U在黑色直线的哪一侧，就可以判断上式，其中<span class="math inline">\(c\)</span>与黑色线有关的常数。对上面的式子稍稍变形，可以得到 <span class="math display">\[
+\boldsymbol{u}\cdot\boldsymbol{w} + b\geqslant 0
+\]</span> 这就是SVM的决策法则(decision rule)，如果上式成立，我们就认为新数据点<span class="math inline">\(U\)</span>在黑色直线的右侧。反之在左侧。仔细想一下，<span class="math inline">\(\boldsymbol{w}\)</span>与黑色线垂直，那么它就包含了黑色线的方向信息，<span class="math inline">\(b\)</span>又能表示黑色线的位置（可联想截距），那么<span class="math inline">\(\boldsymbol{w},b\)</span>一旦确定，黑色线也就确定了。所以我们现在需要做的就是，找到合适的<span class="math inline">\(\boldsymbol{w}\)</span>和<span class="math inline">\(b\)</span>来表示黑色线的位置。这样就可以实现分类了。</p>
+<p>下面为了方便，我们给黑色线起个新名字，叫超平面（hyperplane）。</p>
+<h2 id="margins">Margins</h2>
+<p>SVM的目标是<u>maximize</u> <u>the margin</u>. 上文给出了margin的直觉解释，这部分给出数学表达. (参考自Andrew Ng, CS 299)</p>
+<p><strong>Functional Margin</strong></p>
+<p>Let <span class="math inline">\(\boldsymbol{x}^{(i)}\)</span> denotes the <span class="math inline">\(i^{th}\)</span> training sample, <span class="math inline">\(y^{(i)} \in \{-1, +1\}\)</span> is the corresponding label. <span class="math display">\[
+\hat{\gamma}^{(i)} = y^{(i)}(\boldsymbol{w}^T\boldsymbol{x}^{(i)}+b)
+\]</span> Basically, functional margin is the label multiplies the model output.</p>
+<p>So if functional margin is positive, classified correctly. We also define the functional margin of a training set as the minimal margin over the set. <span class="math display">\[
+\hat{\gamma} = min_i(\hat{\gamma}^{(i)})
+\]</span> One problem we may encounter is when we maximize the functional margin, we can always get larger margin if we scale the parameters synchronously. <span class="math display">\[
+\boldsymbol{w}\rightarrow K\boldsymbol{w},b\rightarrow Kb
+\]</span> <strong>Geometric Margin</strong></p>
+<p>Normalized functional margin <span class="math display">\[
+\gamma^{(i)}=y^{(i)}(\frac{ \boldsymbol{w}^T}{||\boldsymbol{w}||}\boldsymbol{x}^{(i)}+\frac{b}{||\boldsymbol{w}||})
+\]</span></p>
+<h2 id="learning">Learning</h2>
+<p>Our objective is maximizing the geometric margin to get a hyperplane that separates the training data.</p>
+<h4 id="version-1">Version 1</h4>
+<p>SVM的学习问题就可以转化成一个有约束的优化问题： <span class="math display">\[
+\begin{equation}
+\begin{split}
+&amp;\max_{\gamma,\boldsymbol{w},b} \ \gamma \\
+s.t.\ \  &amp;y^{(i)}(\boldsymbol{w}^T \boldsymbol{x}^{(i)}+b) \geqslant \gamma, \ \ \ \ \text{for all} \ i \\
+\ \ &amp;||\boldsymbol{w}||=1
+\end{split}
+\end{equation}
+\]</span> 也就是找到一组<span class="math inline">\(\gamma, \boldsymbol{w}, b\)</span>, 使Geometric margin <span class="math inline">\(\gamma\)</span> 最大. 约束条件有两个，第一是所有的样本和超平面的距离都大于等于几何间隔；第二是权重的范数为1，这可以使得几何间隔等于函数间隔。但由于有<span class="math inline">\(||\boldsymbol{w}||=1\)</span>这一项，这样定义的优化问题并不是凸(convex)的，所以很难求解。</p>
+<h4 id="version-2">Version 2</h4>
+<p>为了将上述非凸（non-convex）优化问题转化成凸优化问题，我们设计一个等价的优化问题 <span class="math display">\[
+\begin{equation}
+\begin{split}
+&amp;\max_{\hat{\gamma},\boldsymbol{w},b} \ \frac{\hat{\gamma}}{||\boldsymbol{w}||} \\
+s.t.\ \  &amp;y^{(i)}(\boldsymbol{w}^T \boldsymbol{x}^{(i)}+b) \geqslant \hat{\gamma}, \ \ \ \ \text{for all} \ i \\
+\end{split}
+\end{equation}
+\]</span> 这个形式的优化问题，本质上还是最大化几何间隔，只是利用几何间隔和函数间隔的关系得到了新的形式。注意此时已经没有对权重的约束了。但是最大化项仍然是非凸的。</p>
+<h4 id="version-3">Version 3</h4>
+<p>我们继续加入新的Constraint，令<span class="math inline">\(\hat{\gamma}=1\)</span>, 带入新的约束进上面的第二个形式的约束问题，得到 <span class="math display">\[
+\begin{equation}
+\begin{split}
+&amp;\max_{\boldsymbol{w},b} \ \frac{1}{||\boldsymbol{w}||} \\
+s.t.\ \  &amp;y^{(i)}(\boldsymbol{w}^T \boldsymbol{x}^{(i)}+b) \geqslant 1, \ \ \ \ \text{for all} \ i \\
+\end{split}
+\end{equation}
+\]</span> 进一步地，最大化$  $ 等价于最小化<span class="math display">\[||\boldsymbol{w}||\]</span>, 等价于最小化<span class="math display">\[||\boldsymbol{w}||^2\]</span>. 所以考虑参数空间(parameter sapce)， 实际上就是quadratic的。每次一个学习一个训练样本后，原本的空间的一半都被剔除，留下符合要求的一半。</p>
+<p>至此，该优化问题转换成了凸优化，所以可以求解。本质上是有约束的凸优化问题，基本的求解算法是拉格朗日乘子法（Lagrange Multiplier）， 高等数学中已经包含，此处不再赘述。</p>
+<h2 id="lagrange-duality">Lagrange Duality</h2>
+<p>在SVM中，解决原始问题的对偶（Dual）问题通常会比原始（Primal）问题更简单。那么什么是对偶问题？怎么解决对偶问题呢？</p>
+<h4 id="general-lagrange">General Lagrange</h4>
+<p>这里我们给出更general的的拉格朗日法，它把等式约束拓展到了不等式约束。 现在我们不考虑SVM，仅仅考虑一个一般的有约束优化问题 <span class="math display">\[
+\begin{equation}
+\begin{split}
+&amp;\min_{\boldsymbol{w}} f(w) \\
+s.t.\ \ \ &amp;g_i(w) \leqslant0, i=1,2,...,k\\
+&amp;h_i(w)=0,i=1,2,...,l.
+\end{split}
+\end{equation}
+\]</span> 为了求解上述问题，我们首先构造一个<strong>generalized Lagrangian</strong> <span class="math display">\[
+\mathcal{L}(w,\alpha,\beta)=f(w)+\sum_i\alpha_ig_i(w)+\sum_i\beta_ih_i(w)
+\]</span> 这里<span class="math inline">\(\alpha_i,\ \beta_i\)</span>是Lagrangian multipliers.</p>
+<p>观察上式，约束条件分别是小于等于0，等于零，这意味着，如果我们假设<span class="math inline">\(\alpha_i\geqslant0\)</span> 那么两个约束条件满足的话， <span class="math display">\[
+\max_{\alpha,\beta: \alpha_i \geqslant0} \mathcal{L}(w,\alpha,\beta)=f(w)
+\]</span> 到这里，我们发现了一个令人激动的好消息，我们成功的通过引入拉格朗日乘子，从而解决了不等式和等式约束的问题。我们的目的是找到合适的<span class="math inline">\(w\)</span>使得<span class="math inline">\(f(w)\)</span>最小，如果用Lagrangian表示这个问题，我们就得到 <span class="math display">\[
+\min_w f(w)=\min_w \max_{\alpha,\beta: \alpha_i \geqslant0} \mathcal{L}(w,\alpha,\beta)
+\]</span> 为了简便和整洁，我们给<span class="math inline">\(\max_{\alpha,\beta: \alpha_i \geqslant0} \mathcal{L}(w,\alpha,\beta)\)</span> 这一项起个新名字，叫原始问题(primal problem). 记作<span class="math inline">\(\theta_{\mathcal{P}}(w)\)</span>, 显然, <span class="math display">\[
+\theta_{\mathcal{P}}(w)=\max_{\alpha,\beta: \alpha_i \geqslant0} \mathcal{L}(w,\alpha,\beta) = f(w)
+\]</span> 上式的中第一个等号是我们的定义，永远成立，第二个等号的成立条件是所有的约束都被满足了。这是因为，<strong>如果不满足这两个条件中的任意一个，我们最大化Lagrangian的值就会是正无穷</strong>。原因是，假设不满足<span class="math inline">\(g_i(w) \leqslant0\)</span>, 那么表示有些约束项会是<span class="math inline">\(g_i(w) \geqslant0\)</span>， 由于Lagrangian multipliers是我们自己设定的，这时只需要将<span class="math inline">\(\alpha_i\)</span>设置成很大很大的正数，Lagrangian的值就会是正无穷了。<span class="math inline">\(h_i(w)=0\)</span>约束同理，只要不是0，我们总可以找到一个足够大的数<span class="math inline">\(\beta_i\)</span>使得Lagrangian为的值为正无穷。</p>
+<p>现在我们假设，我们已经找到了最合适的<span class="math inline">\(w\)</span>使得<span class="math inline">\(f(w)\)</span>最小，我们记作 <span class="math display">\[
+w_p^*=\min_w \theta_{\mathcal{P}}(w)
+\]</span></p>
+<h2 id="kernals">Kernals</h2>
+<p>Here is the reason for all the magic.</p>
+<p>到底什么是Kernel function呢？很多教程中把它说的很复杂，让我们从一个简单的角度考虑。 首先，我们先考虑线性可分的数据集，根据上文的分析，我们可以得到一个决策边界，或者说超平面，或者说分类面。而这个决策边界是只基于样本的两两点乘的。也就是说，我们只需要知道所有的<span class="math inline">\(x_i\cdot x_j\)</span>, 我们就可以正确进行线性分类了。</p>
+<p>那么在线性不可分的情况下，我们考虑把这些数据映射到更高维的空间去，在高维空间，原本不可分的数据就变成可分的了。那么怎么进行映射呢？我们可以采用一个<span class="math inline">\(\phi\)</span>函数，这个<span class="math inline">\(\phi\)</span>函数可以任意指定，只要能达成我们分类的目的即可。举个例子，假设我们的数据是这样的：<span class="math inline">\(\boldsymbol{x}=x_1,x_2\)</span>, 为了将这个数据映射到高维，我们可以设计一个<span class="math inline">\(\phi(z)=[z, z^2, z^3]\)</span>. 将<span class="math inline">\(\boldsymbol{x}\)</span>带入<span class="math inline">\(\phi(\cdot)\)</span>我们就得到了一个原始数据的高维表示。</p>
+<p>现在根据设计好的映射函数，我们可以获得任意两个数据的高维表示<span class="math inline">\(\phi(\boldsymbol{x_i})\)</span>和<span class="math inline">\(\phi(\boldsymbol{x_j})\)</span>，那么根据上文的结论，现在我们将数据映射到高维，这个决策边界也是高维的，但是我们的决策边界仍然取决于所有样本的两两点乘，也就是<span class="math inline">\(\phi(\boldsymbol{x_i})\cdot\phi(\boldsymbol{x_j})\)</span>. 所以只要能计算出这个点乘结果，我们就能找到决策边界了。</p>
+<p>现在有一个问题，我们每次都要先把数据从低维映射到高维，然后又要再求点乘，好麻烦啊。而且我也不知道挑选什么样的<span class="math inline">\(\phi\)</span>比较合适，要是有个人直接告诉我们点乘的结果就好了。比如说，有人告诉我们<span class="math inline">\(\phi(\boldsymbol{x_i})\cdot\phi(\boldsymbol{x_j})=12x_ix_j+3x_i^2x_j\)</span>，那我就可以直接计算决策边界了，根本不需要知道<span class="math inline">\(\phi(\cdot)\)</span>的表达式究竟是什么。这样不仅不用设计<span class="math inline">\(\phi\)</span>的表达式，并且很大程度上简化了计算，把中间步骤都省了。那么谁能告诉我们这个结果吗？Kernal function会告诉我们的。在上面的例子里，<span class="math inline">\(K(x_i,x_j)=12x_ix_j+3x_i^2x_j=\phi(\boldsymbol{x_i})\cdot\phi(\boldsymbol{x_j})\)</span>. 这就是所谓的核函数了。</p>
+<p>所以，我们为了解决线性不可分问题，把数据映射到新的空间里，但是我们不需要知道具体的映射规则是什么，我们不需要知道是怎么映射过去，也不需要知道映射到哪里了，我们只需要知道映射后的两个数据点的点乘。也就是核函数<span class="math inline">\(K\)</span>。</p>
+<h2 id="references">References</h2>
+<p><a href="https://www.youtube.com/watch?v=_PwhiWxHK8o" target="_blank" rel="external">MIT SVM Online courses</a></p>
+
+      
+
+      <div>
+        
+          <div>
+    
+        <div style="text-align:center;color: #636363;font-size:14px;letter-spacing: 10px">本文结束啦<i class="fa fa-bell"></i>感谢您的阅读</div>
+    
+</div>
+
+        
+      </div>
+
+
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/MLPR/" rel="tag"># MLPR</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/01/Transformer/" rel="next" title="Transformer for NMT">
+                <i class="fa fa-chevron-left"></i> Transformer for NMT
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/04/01/Tensorflow_restore_model/" rel="prev" title="Tensorflow save and restore model">
+                Tensorflow save and restore model <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="http://www.wallpapers13.com/wp-content/uploads/2017/06/Dota-2-Pictures-gallery-Invoker-Magic-fighter-Digital-Art-Wallpaper-HD-1920x1080-1366x768.jpg"
+                alt="Shyiet Liu" />
+            
+              <p class="site-author-name" itemprop="name">Shyiet Liu</p>
+              <p class="site-description motion-element" itemprop="description">Which hearts more</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#support-vector-machine-and-kernals"><span class="nav-text">Support Vector Machine and Kernals</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#whats-svm"><span class="nav-text">What's SVM？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#margins"><span class="nav-text">Margins</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#learning"><span class="nav-text">Learning</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#version-1"><span class="nav-text">Version 1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#version-2"><span class="nav-text">Version 2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#version-3"><span class="nav-text">Version 3</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lagrange-duality"><span class="nav-text">Lagrange Duality</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#general-lagrange"><span class="nav-text">General Lagrange</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#kernals"><span class="nav-text">Kernals</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#references"><span class="nav-text">References</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Shyiet Liu</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="custom_mathjax_source">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+  
+
+
+  
+
+  
+
+</body>
+</html>

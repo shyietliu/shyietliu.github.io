@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="Deep Copy and Shallow Copy in Python 在给变量赋值的时候，Python会有深浅拷贝两种情况。  Python中对象的赋值都是进行对象引用（内存地址）传递 使用copy.copy()，可以进行对象的浅拷贝，它复制了对象，但对于对象中的元素，依然使用原始的引用. 如果需要复制一个容器对象，以及它里面的所有元素（包含元素的子元素），可以使用copy.deepco">
+<meta name="description" content="Deep Copy and Shallow Copy in Python 在给变量赋值的时候，Python会有深浅拷贝两种情况。  Python中对象的赋值都是进行对象引用（内存地址）传递 使用copy.copy()，可以进行对象的浅拷贝，它复制了对象，但对于对象中的元素，依然使用原始的引用. 如果需要复制一个容器对象，以及它里面的所有元素（包含元素的子元素），可以使用copy.deepcop">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Willand">
 <meta property="og:url" content="http://yoursite.com/2018/06/22/deep_copy_and_shadow_copy/index.html">
 <meta property="og:site_name" content="Willand">
-<meta property="og:description" content="Deep Copy and Shallow Copy in Python 在给变量赋值的时候，Python会有深浅拷贝两种情况。  Python中对象的赋值都是进行对象引用（内存地址）传递 使用copy.copy()，可以进行对象的浅拷贝，它复制了对象，但对于对象中的元素，依然使用原始的引用. 如果需要复制一个容器对象，以及它里面的所有元素（包含元素的子元素），可以使用copy.deepco">
+<meta property="og:description" content="Deep Copy and Shallow Copy in Python 在给变量赋值的时候，Python会有深浅拷贝两种情况。  Python中对象的赋值都是进行对象引用（内存地址）传递 使用copy.copy()，可以进行对象的浅拷贝，它复制了对象，但对于对象中的元素，依然使用原始的引用. 如果需要复制一个容器对象，以及它里面的所有元素（包含元素的子元素），可以使用copy.deepcop">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2018-06-22T01:34:19.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Willand">
-<meta name="twitter:description" content="Deep Copy and Shallow Copy in Python 在给变量赋值的时候，Python会有深浅拷贝两种情况。  Python中对象的赋值都是进行对象引用（内存地址）传递 使用copy.copy()，可以进行对象的浅拷贝，它复制了对象，但对于对象中的元素，依然使用原始的引用. 如果需要复制一个容器对象，以及它里面的所有元素（包含元素的子元素），可以使用copy.deepco">
+<meta name="twitter:description" content="Deep Copy and Shallow Copy in Python 在给变量赋值的时候，Python会有深浅拷贝两种情况。  Python中对象的赋值都是进行对象引用（内存地址）传递 使用copy.copy()，可以进行对象的浅拷贝，它复制了对象，但对于对象中的元素，依然使用原始的引用. 如果需要复制一个容器对象，以及它里面的所有元素（包含元素的子元素），可以使用copy.deepcop">
 
 
 
@@ -333,19 +333,19 @@
       
         <hr>
 <hr>
-<h1 id="deep-copy-and-shallow-copy-in-python"><a class="markdownIt-Anchor" href="#deep-copy-and-shallow-copy-in-python"></a> Deep Copy and Shallow Copy in Python</h1>
+<h1 id="deep-copy-and-shallow-copy-in-python">Deep Copy and Shallow Copy in Python</h1>
 <p>在给变量赋值的时候，Python会有深浅拷贝两种情况。</p>
 <ul>
 <li>Python中对象的赋值都是进行对象引用（内存地址）传递</li>
 <li>使用copy.copy()，可以进行对象的浅拷贝，它复制了对象，但对于对象中的元素，依然使用原始的引用.</li>
 <li>如果需要复制一个容器对象，以及它里面的所有元素（包含元素的子元素），可以使用copy.deepcopy()进行深拷贝</li>
-<li>对于非容器类型（如数字、字符串、和其他’原子’类型的对象）没有被拷贝一说</li>
+<li>对于非容器类型（如数字、字符串、和其他'原子'类型的对象）没有被拷贝一说</li>
 </ul>
-<h2 id="shallow-copy"><a class="markdownIt-Anchor" href="#shallow-copy"></a> Shallow Copy</h2>
+<h2 id="shallow-copy">Shallow Copy</h2>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">a = [<span class="string">'Shallow'</span>, <span class="string">'Copy'</span>]</div><div class="line">b = a</div></pre></td></tr></table></figure>
 <p>Shallow copy 把一个变量的地址赋给另一个变量, 实际上在内存中，a，b指向的是同一个地址，所以当我们修改a, b中任意一个时，另外一个也会随之改变，因为不论我们修改a或者b，实际上都是对同一个地址的内容进行的修改。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">a[<span class="number">0</span>] = <span class="string">'test'</span></div><div class="line"><span class="comment"># Or </span></div><div class="line"><span class="comment"># b[0] = 'test b'</span></div><div class="line"><span class="keyword">print</span> (a, b)</div><div class="line"></div><div class="line"><span class="comment"># result:</span></div><div class="line">a = [<span class="string">'test'</span>, <span class="string">'Copy'</span>]</div><div class="line">b = [<span class="string">'test'</span>, <span class="string">'Copy'</span>]</div></pre></td></tr></table></figure>
-<h2 id="deep-copy"><a class="markdownIt-Anchor" href="#deep-copy"></a> Deep Copy</h2>
+<h2 id="deep-copy">Deep Copy</h2>
 
       
 
@@ -393,7 +393,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/06/22/svm/" rel="prev" title="">
+              <a href="/2018/06/22/Monilingual_data/" rel="prev" title="">
                  <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -535,7 +535,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#deep-copy-and-shallow-copy-in-python"><span class="nav-text"> Deep Copy and Shallow Copy in Python</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#shallow-copy"><span class="nav-text"> Shallow Copy</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#deep-copy"><span class="nav-text"> Deep Copy</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#deep-copy-and-shallow-copy-in-python"><span class="nav-text">Deep Copy and Shallow Copy in Python</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#shallow-copy"><span class="nav-text">Shallow Copy</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#deep-copy"><span class="nav-text">Deep Copy</span></a></li></ol></li></ol></div>
             
 
           </div>
