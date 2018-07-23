@@ -89,7 +89,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://pau5bznt3.bkt.clouddn.com/18-6-25/38423682.jpg">
 <meta property="og:image" content="http://pau5bznt3.bkt.clouddn.com/18-6-25/16719309.jpg">
-<meta property="og:updated_time" content="2018-06-24T18:08:40.000Z">
+<meta property="og:updated_time" content="2018-06-28T10:16:37.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Support Vector Machine and Kernals">
 <meta name="twitter:description" content="Support Vector Machine and Kernals What&apos;s SVM？ 有很多种SVM的intuition的解释，下面这种是我觉得比较好的一种  考虑一个线性可分的数据集（线性可分可以简单理解为一条线就能办数据完美分成两类的情况，线性不可分的问题是线性可分的一个拓展，后文会提到。） 可以看到根据上图，我们有很多条线（实际上是无数条, 途中浅绿色虚线，蓝色直线，和黑色直线都可">
@@ -419,7 +419,7 @@ s.t.\ \  &amp;y^{(i)}(\boldsymbol{w}^T \boldsymbol{x}^{(i)}+b) \geqslant 1, \ \ 
 <p>至此，该优化问题转换成了凸优化，所以可以求解。本质上是有约束的凸优化问题，基本的求解算法是拉格朗日乘子法（Lagrange Multiplier）， 高等数学中已经包含，此处不再赘述。</p>
 <h2 id="lagrange-duality">Lagrange Duality</h2>
 <p>在SVM中，解决原始问题的对偶（Dual）问题通常会比原始（Primal）问题更简单。那么什么是对偶问题？怎么解决对偶问题呢？</p>
-<h4 id="general-lagrange">General Lagrange</h4>
+<h4 id="lagrange-primal-problem">Lagrange Primal Problem</h4>
 <p>这里我们给出更general的的拉格朗日法，它把等式约束拓展到了不等式约束。 现在我们不考虑SVM，仅仅考虑一个一般的有约束优化问题 <span class="math display">\[
 \begin{equation}
 \begin{split}
@@ -431,16 +431,36 @@ s.t.\ \ \ &amp;g_i(w) \leqslant0, i=1,2,...,k\\
 \]</span> 为了求解上述问题，我们首先构造一个<strong>generalized Lagrangian</strong> <span class="math display">\[
 \mathcal{L}(w,\alpha,\beta)=f(w)+\sum_i\alpha_ig_i(w)+\sum_i\beta_ih_i(w)
 \]</span> 这里<span class="math inline">\(\alpha_i,\ \beta_i\)</span>是Lagrangian multipliers.</p>
-<p>观察上式，约束条件分别是小于等于0，等于零，这意味着，如果我们假设<span class="math inline">\(\alpha_i\geqslant0\)</span> 那么两个约束条件满足的话， <span class="math display">\[
+<p>观察上式，约束条件分别是小于等于0，等于零，这意味着，如果我们假设<span class="math inline">\(\alpha_i\geqslant0\)</span> 那么两个约束条件满足的话，我们就可以得到： <span class="math display">\[
 \max_{\alpha,\beta: \alpha_i \geqslant0} \mathcal{L}(w,\alpha,\beta)=f(w)
-\]</span> 到这里，我们发现了一个令人激动的好消息，我们成功的通过引入拉格朗日乘子，从而解决了不等式和等式约束的问题。我们的目的是找到合适的<span class="math inline">\(w\)</span>使得<span class="math inline">\(f(w)\)</span>最小，如果用Lagrangian表示这个问题，我们就得到 <span class="math display">\[
+\]</span> 注意上个式子是对<span class="math inline">\(\alpha, \beta\)</span>求最大值，而不是<span class="math inline">\(w\)</span>. 上式的意义是，找到一组<span class="math inline">\(\alpha, \beta\)</span>使得Lagrangian最大。可是为什么我们要这么做呢？这是因为，<strong>如果不满足这两个条件中的任意一个，我们最大化Lagrangian的值就会是正无穷</strong>。原因是，假设不满足<span class="math inline">\(g_i(w) \leqslant0\)</span>, 那么表示有些约束项会是<span class="math inline">\(g_i(w) \geqslant0\)</span>， 由于Lagrangian multipliers是我们自己设定的，这时只需要将<span class="math inline">\(\alpha_i\)</span>设置成很大很大的正数，Lagrangian的值就会是正无穷了。<span class="math inline">\(h_i(w)=0\)</span>约束同理，只要不是0，我们总可以找到一个足够大的数<span class="math inline">\(\beta_i\)</span>使得Lagrangian为的值为正无穷。</p>
+<p>所以，我们对<span class="math inline">\(\alpha, \beta\)</span>进行优化，取Lagrangian的最大值，那么这个最大值只有两种可能，一种是无穷大，另一种是<span class="math inline">\(f(w)\)</span>。</p>
+<p>到这里，我们发现了一个令人激动的好消息，我们成功的通过引入拉格朗日乘子，从而解决了不等式和等式约束的问题。再回想我们的目的是找到合适的<span class="math inline">\(w\)</span>使得<span class="math inline">\(f(w)\)</span>尽可能的小，那和我们之前求Lagrangian的最大值又有什么关系呢？下面就是最关键的一步了。</p>
+<p>继续分析之前先考虑一下我们现在做了什么。我们想在一堆约束条件下，找到合适的<span class="math inline">\(w\)</span>, 使得函数<span class="math inline">\(f(w)\)</span>的值尽可能小。我们通过构建Lagrangian解决了约束条件的问题。我们不停的改变<span class="math inline">\(\alpha, \beta\)</span>使得Lagrangian尽可能的大，并且我们知道，不论<span class="math inline">\(w\)</span>怎么取值，当我们取合适的<span class="math inline">\(\alpha, \beta\)</span>使Lagrangian极大的时候，这个Lagrangian只有两种取值可能（无穷大和<span class="math inline">\(f(w)\)</span>）。而且要注意，当Lagrangian无穷大的时候，必然是不满足约束条件的。所以，激动人心的时刻来了，只要满足约束条件，那么Lagrangian的值就是的<span class="math inline">\(f(w)\)</span>。至此，我们真正的把约束项解决了。这样的<span class="math inline">\(f(w)\)</span>一定是满足约束条件的。然后我们只需要再对<span class="math inline">\(f(w)\)</span>求极小值，就完成了。</p>
+<p>如果用Lagrangian表示这个问题，我们就得到 <span class="math display">\[
 \min_w f(w)=\min_w \max_{\alpha,\beta: \alpha_i \geqslant0} \mathcal{L}(w,\alpha,\beta)
-\]</span> 为了简便和整洁，我们给<span class="math inline">\(\max_{\alpha,\beta: \alpha_i \geqslant0} \mathcal{L}(w,\alpha,\beta)\)</span> 这一项起个新名字，叫原始问题(primal problem). 记作<span class="math inline">\(\theta_{\mathcal{P}}(w)\)</span>, 显然, <span class="math display">\[
+\]</span> 为了简便和整洁，我们把<span class="math inline">\(\max_{\alpha,\beta: \alpha_i \geqslant0} \mathcal{L}(w,\alpha,\beta)\)</span> 这一项记作<span class="math inline">\(\theta_{\mathcal{P}}(w)\)</span>, 显然, <span class="math display">\[
 \theta_{\mathcal{P}}(w)=\max_{\alpha,\beta: \alpha_i \geqslant0} \mathcal{L}(w,\alpha,\beta) = f(w)
-\]</span> 上式的中第一个等号是我们的定义，永远成立，第二个等号的成立条件是所有的约束都被满足了。这是因为，<strong>如果不满足这两个条件中的任意一个，我们最大化Lagrangian的值就会是正无穷</strong>。原因是，假设不满足<span class="math inline">\(g_i(w) \leqslant0\)</span>, 那么表示有些约束项会是<span class="math inline">\(g_i(w) \geqslant0\)</span>， 由于Lagrangian multipliers是我们自己设定的，这时只需要将<span class="math inline">\(\alpha_i\)</span>设置成很大很大的正数，Lagrangian的值就会是正无穷了。<span class="math inline">\(h_i(w)=0\)</span>约束同理，只要不是0，我们总可以找到一个足够大的数<span class="math inline">\(\beta_i\)</span>使得Lagrangian为的值为正无穷。</p>
-<p>现在我们假设，我们已经找到了最合适的<span class="math inline">\(w\)</span>使得<span class="math inline">\(f(w)\)</span>最小，我们记作 <span class="math display">\[
+\]</span> 上式的中第一个等号是我们的定义，永远成立，第二个等号的成立条件是所有的约束都被满足了，<span class="math inline">\(\mathcal{P}\)</span>表示Primal（原始）。</p>
+<h3 id="lagrange-dual-problem">Lagrange Dual Problem</h3>
+<p>刚才我们解决有约束优化问题的思路是，先构建Lagrangian，再改变<span class="math inline">\(\alpha, \beta\)</span>使Lagrangian极大，最后选能使<span class="math inline">\(f(w)\)</span>极小的<span class="math inline">\(w\)</span>. 那我们能不能交换一下顺序呢？可不可以先对<span class="math inline">\(w\)</span>进行优化，再对Lagrange Multipliers优化呢？答案是可以的，并且这就是原始问题的对偶问题。</p>
+<p>类似原始问题中的定义，我们定义 <span class="math display">\[
+\theta_{\mathcal{D}}(\alpha, \beta)=\min_w \mathcal{L}(w,\alpha,\beta)
+\]</span> 注意与上面<span class="math inline">\(\theta_{\mathcal{D}}(w)\)</span>的式子比较，二者都是最大化Lagrangian，区别在于对不同的变量进行优化。下面我们就可以定义对偶问题了。</p>
+<p>现重写原始问题如下： <span class="math display">\[
+\min_w \theta_{\mathcal{P}}(w)=\min_w \max_{\alpha,\beta: \alpha_i \geqslant0} \mathcal{L}(w,\alpha,\beta)
+\]</span> 其对偶问题为： <span class="math display">\[
+\max_{\alpha,\beta: \alpha_i \geqslant0} \theta_{\mathcal{D}}(\alpha, \beta) = \max_{\alpha,\beta: \alpha_i \geqslant0} \min_w \mathcal{L}(w,\alpha,\beta)
+\]</span> 直观来看，对偶问题只是将原始问题中的<span class="math inline">\(\min, \max\)</span>交换顺序而已。</p>
+<p>现在我们假设，我们已经找到了最合适的<span class="math inline">\(w\)</span>使得原始问题最优，我们记作 <span class="math display">\[
 w_p^*=\min_w \theta_{\mathcal{P}}(w)
-\]</span></p>
+\]</span> 同时，我们也找到另外的<span class="math inline">\(w\)</span>使得对偶问题最优，记作 <span class="math display">\[
+w_d^*=\max_{\alpha,\beta: \alpha_i \geqslant0} \theta_{\mathcal{D}}(\alpha, \beta)
+\]</span> 在继续分析之前，我们要先提一个事实， <span class="math display">\[
+\max \min (...) \leqslant \min \max(...)
+\]</span> 所以我们就可以的根据这个事实得到 <span class="math display">\[
+w_d^*=\max_{\alpha,\beta: \alpha_i \geqslant0} \theta_{\mathcal{D}}(\alpha, \beta) \leqslant \min_w \theta_{\mathcal{P}}(w) = w_p^*
+\]</span> 上式表示，对偶问题的解小于等于原始问题的解。我们希望得到相同的解，所以我们想知道上式什么时候能取等号。接下来我们分析什么样的情况下，上式能取等号。</p>
 <h2 id="kernals">Kernals</h2>
 <p>Here is the reason for all the magic.</p>
 <p>到底什么是Kernel function呢？很多教程中把它说的很复杂，让我们从一个简单的角度考虑。 首先，我们先考虑线性可分的数据集，根据上文的分析，我们可以得到一个决策边界，或者说超平面，或者说分类面。而这个决策边界是只基于样本的两两点乘的。也就是说，我们只需要知道所有的<span class="math inline">\(x_i\cdot x_j\)</span>, 我们就可以正确进行线性分类了。</p>
@@ -588,7 +608,7 @@ w_p^*=\min_w \theta_{\mathcal{P}}(w)
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -645,7 +665,7 @@ w_p^*=\min_w \theta_{\mathcal{P}}(w)
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#support-vector-machine-and-kernals"><span class="nav-text">Support Vector Machine and Kernals</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#whats-svm"><span class="nav-text">What's SVM？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#margins"><span class="nav-text">Margins</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#learning"><span class="nav-text">Learning</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#version-1"><span class="nav-text">Version 1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#version-2"><span class="nav-text">Version 2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#version-3"><span class="nav-text">Version 3</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lagrange-duality"><span class="nav-text">Lagrange Duality</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#general-lagrange"><span class="nav-text">General Lagrange</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#kernals"><span class="nav-text">Kernals</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#references"><span class="nav-text">References</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#support-vector-machine-and-kernals"><span class="nav-text">Support Vector Machine and Kernals</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#whats-svm"><span class="nav-text">What's SVM？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#margins"><span class="nav-text">Margins</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#learning"><span class="nav-text">Learning</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#version-1"><span class="nav-text">Version 1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#version-2"><span class="nav-text">Version 2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#version-3"><span class="nav-text">Version 3</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lagrange-duality"><span class="nav-text">Lagrange Duality</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#lagrange-primal-problem"><span class="nav-text">Lagrange Primal Problem</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lagrange-dual-problem"><span class="nav-text">Lagrange Dual Problem</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#kernals"><span class="nav-text">Kernals</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#references"><span class="nav-text">References</span></a></li></ol></li></ol></div>
             
 
           </div>
